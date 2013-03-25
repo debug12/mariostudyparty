@@ -25,7 +25,7 @@ bmp.pix		mult	bmp.cur		bmp.cury	bmp.width
 		add	vga.y1		bmp.cury	bmp.y
 
 		cp	vga.x2		vga.x1
-		cp	cga.y2		vga.y1
+		cp	vga.y2		vga.y1
 		
 		call	vga		vga.r
 		
@@ -51,14 +51,17 @@ bmp.r		.data	0
 
 // size of the image
 bmp.width	.data	0
+		.data	0
 bmp.height	.data	0
 
 // position at which we are drawing the image
 bmp.x		.data	0
+		.data	0
 bmp.y		.data	0
 
 // the current x and y of the pixel we are drawing
 bmp.curx	.data	0
+		.data	0
 bmp.cury	.data	0
 
 // the current address relative
