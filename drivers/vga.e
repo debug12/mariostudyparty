@@ -16,15 +16,10 @@ vga.waiting2 	in	61		vga.response
 
 		ret	vga.r
 
-// x can be > 255 so needs extra bit
 vga.x1		.data 	0
-		.data 	0
-vga.x2		.data 	0
-		.data	0
+vga.x2		.data	0
 vga.y1		.data 	0
-		.data	0
 vga.y2		.data 	0
-		.data	0
 vga.col 	.data 	0
 vga.response 	.data	0
 vga.r 		.data	0
