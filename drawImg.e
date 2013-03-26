@@ -8,15 +8,14 @@
 		// beginning of the image
 bmp		cp	bmp.curx	zero
 		cp	bmp.cury	zero
+		cp	bmp.cur		bmp.addr
 
 		// bmp.pix draws a single pixel of the bitmap
 		// the address of the pixel we're reading is
 		// bmp.addr + bmp.curx + bmp.cury * bmp.width
 		// the position is bmp.x + bmp.curx, bmp.y + bmp.cury
-bmp.pix		mult	bmp.cur		bmp.cury	bmp.width
-		add	bmp.cur		bmp.cur		bmp.curx
-
-		cpfa	vga.col		bmp.addr	bmp.cur	
+bmp.pix		cpfa	vga.col		zero	bmp.cur
+		add	bmp.cur		bmp.cur	one
 
 		// if the color is the color key, we don't draw it
 		be	bmp.incx	vga.col		bmp.key
