@@ -14,7 +14,7 @@ bmp		cp	bmp.curx	zero
 		// the address of the pixel we're reading is
 		// bmp.addr + bmp.curx + bmp.cury * bmp.width
 		// the position is bmp.x + bmp.curx, bmp.y + bmp.cury
-bmp.pix		cpfa	vga.col		zero	bmp.cur
+bmp.pix		cpfa	vga.col		0	bmp.cur
 		add	bmp.cur		bmp.cur	one
 
 		// if the color is the color key, we don't draw it

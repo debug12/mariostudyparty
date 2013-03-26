@@ -6,16 +6,14 @@
 	call	bmp	bmp.r
 	halt
 	
-x	.data	0
-y	.data	0
+x	.data	10
+y	.data	10
 width	.data	50
 height	.data	77
 col	.data	50
 	
 #include drivers/vga.e
-
 #include menu.e
-
 #include drawImg.e
 
 zero	.data	0
