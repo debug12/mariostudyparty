@@ -11,15 +11,15 @@ y	.data	10
 width	.data	50
 height	.data	77
 col	.data	50
-	
-#include drivers/vga.e
-#include menu.e
-#include drawImg.e
 
 zero	.data	0
 one	.data	1
-five	.data	5
-ten	.data	32
+	
+#include drivers/vga.e
+#include drivers/sdc.e
+
+#include menu.e
+#include drawImg.e
 
 #include mar.e
 
