@@ -1,19 +1,29 @@
-// SD card driver. to read from 
+// SD card driver
+//
+// parameters:
+//
+//	low - the first 8 bits of the address
+//	hi - second 8 bits
+//
+// returns:
+//
+//	read - the value being read
 
 sdc	out	82	zero
 	out	83	sdc.low
-	out	84	sdc.low	
+	out	84	sdc.hi
 	out	80	one
 	
 sdc.w1	in	81	sdc.res
 	be	sdc.w1	sdc.res	zero
-	
+
+	// read return paremeter while response is 1	
+	in	86	sdc.read
+
 	out	80	zero
 	
 sdc.w2	in	81	sdc.res
-	be	sdc.w1	sdc.res	one
-	
-	in	86	sdc.read
+	be	sdc.w2	sdc.res	one
 	
 	ret	sdc.r
 	

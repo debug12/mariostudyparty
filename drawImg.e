@@ -64,8 +64,6 @@ bmp.y		.data	0
 // the current x and y of the pixel we are drawing
 bmp.curx1	.data	0
 bmp.cury1	.data	0
-bmp.curx2	.data	0
-bmp.cury2	.data	0
 
 // the current address relative
 // to the beginning of the image
