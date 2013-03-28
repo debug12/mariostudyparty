@@ -1,3 +1,10 @@
+// VGA driver
+// parameters:
+//
+//	(x1, y1) - upper-left corner
+//	(x2, y2) - lower-right corner
+//	col - 8-bit color of rectangle
+
 vga	out	62	vga.write			
 	out	63	vga.x1			
 	out	64	vga.y1			

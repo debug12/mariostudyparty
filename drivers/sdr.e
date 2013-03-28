@@ -1,3 +1,16 @@
+// SDRAM driver
+// 
+// parameters:
+//
+//	write - 1 if writing, 0 if reading
+//	(x, y) - the location in memory being
+//		written/read to/from
+//	in - the value begin written
+//
+// returns:
+//
+//	out - the value read
+
 sdr	out	32	sdr.write
 	out	33	sdr.x
 	out	34	sdr.y

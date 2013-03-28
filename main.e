@@ -1,4 +1,5 @@
-	
+	cp	sdc.low	zero
+	call	sdc	sdc.r	
 	halt
 
 zero	.data	0
