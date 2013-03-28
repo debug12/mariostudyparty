@@ -1,9 +1,19 @@
-	cp	sdc.low	zero
-	call	sdc	sdc.r	
-	halt
+read	cpfa	sdc.low	0	i
+	call	sdc	sdc.r
+	add	i	i	one
+	be	end	i	size
+	be	read	0	0
+	
+	
+end	halt
 
 zero	.data	0
 one	.data	1
+two	.data	2
+three	.data	3
+four	.data	4
+i	.data	0
+size	.data	10
 
 x	.data	50
 y	.data	50
@@ -16,4 +26,5 @@ val2	.data	0
 #include drivers/sdr.e
 
 #include drawImg.e
+#include load.e
 

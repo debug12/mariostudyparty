@@ -2,8 +2,8 @@
 //
 // parameters:
 //
-//	low - the first 8 bits of the address
-//	hi - second 8 bits
+//	low - the first 16 bits of the address
+//	hi - second 16 bits
 //
 // returns:
 //
