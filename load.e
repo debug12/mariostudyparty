@@ -6,7 +6,7 @@
 // the next two values are the width and height of the image, followed
 // by the image data itself.
 //
-// the data is copied DIRECTLY into SDRAM, value-for-value.
+// the data is copied DIRECTLY into SDRAM, value-for-value. <--WILL PROBABLY CHANGE
 // however, some addtional data is written to the label specified
 // in imgaddr.e. for each image, four values are written, 
 // representing the location of the image in memory and the
@@ -38,7 +38,6 @@ load.inclo	add	sdc.low		sdc.low		one
 		
 load.inchi	add	sdc.hi		sdc.hi		one
 		cp	sdc.low		zero
-		be	load.ret	sdc.hi		load.sdc
 		
 load.incx	add	sdr.x		sdr.x		one
 		be	load.incy	sdr.x		load.sdr
@@ -52,18 +51,21 @@ load.incy	add	sdr.y		sdr.y		one
 
 load.ret	ret	load.r
 
-load.img	cpta	sdr.x		load.imgaddr	zero 		
-		cpta	sdr.y		load.imgaddr	one
+load.img	cpta	sdr.x		imgaddr		load.i
+		add	load.i		load.i		one		
+		cpta	sdr.y		imgaddr		load.i
+		add	load.i		load.i		one
 		cp	load.flag	one
 		be	load.inclo	0		0
 
-load.w		cpta	load.imgaddr	two		sdc.read
+load.w		cpta	sdc.read	imgaddr		load.i
+		add	load.i		load.i		one
 		cp	load.flag	two
 		be	load.inclo	0		0
 
-load.h		cpta	load.imgaddr	three		sdc.read
+load.h		cpta	sdc.read	imgaddr		three
+		add	load.i		load.i		one
 		cp	load.flag	zero
-		add	load.imgaddr	load.imgaddr	four
 		be	load.inclo	0		0
 
 
@@ -72,4 +74,6 @@ load.sdr	.data	2048
 load.sdc	.data	-1
 load.start	.data	1024
 load.imgaddr	.data	0
+load.i		.data	0
+load.j		.data	0
 load.r		.data	0
