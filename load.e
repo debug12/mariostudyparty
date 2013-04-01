@@ -1,51 +1,75 @@
 // load.e - loads image and sound data from sd card
 // to sdram
+//
+// the file on the sd card must be formatted in a particular way.
+// the beginning of an image is indicated with the value 1024.
+// the next two values are the width and height of the image, followed
+// by the image data itself.
+//
+// the data is copied DIRECTLY into SDRAM, value-for-value.
+// however, some addtional data is written to the label specified
+// in imgaddr.e. for each image, four values are written, 
+// representing the location of the image in memory and the
+// image's size. ideally, when drawing an image, we will just specify
+// an index and call a procedure that will find the address and size of
+// the corresponding image.
 
 load		cp	sdc.low		zero
 		cp	sdc.hi		zero
+		cp	sdr.x		zero
+		cp	sdr.y		zero
 		cp	sdr.write	one
 
 load.write	// call sd card driver
 		call	sdc		sdc.r
-		// set x, y of sdram
-		cp	sdr.x		sdc.low
-		cp	sdr.y		sdc.hi
 		// set value we are writing
 		cp	sdr.in		sdc.read
 		call	sdr		sdr.r
-
+	
+		// if the value is 1024 it's the beginning of an image
 		be	load.img	sdc.read	load.start
 		be	load.w		load.flag	one
 		be	load.h		load.flag	two
 
 		// increment sdr.low
-load.incx	add	sdc.low		sdc.low		one
-		be	load.incy	sdc.low		load.size
+load.inclo	add	sdc.low		sdc.low		one
+		be	load.inchi	sdc.low		load.sdc
+		be	load.incx	0		0
 		
-load.incy	add	sdc.hi		sdc.hi		one
+load.inchi	add	sdc.hi		sdc.hi		one
 		cp	sdc.low		zero
-		be	load.ret	sdc.hi		load.size
+		be	load.ret	sdc.hi		load.sdc
+		
+load.incx	add	sdr.x		sdr.x		one
+		be	load.incy	sdr.x		load.sdr
+		be	load.write	0		0
+		
+load.incy	add	sdr.y		sdr.y		one
+		cp	sdr.x		zero
+		be	load.ret	sdr.y		load.sdr
+	
 		be	load.write	0		0
 
 load.ret	ret	load.r
 
-load.img	cpta	sdc.low		load.imgaddr	zero 		
-		cpta	sdc.hi		load.imgaddr	one
+load.img	cpta	sdr.x		load.imgaddr	zero 		
+		cpta	sdr.y		load.imgaddr	one
 		cp	load.flag	one
-		be	load.incx	0		0
+		be	load.inclo	0		0
 
 load.w		cpta	load.imgaddr	two		sdc.read
 		cp	load.flag	two
-		be	load.incx	0		0
+		be	load.inclo	0		0
 
 load.h		cpta	load.imgaddr	three		sdc.read
 		cp	load.flag	zero
 		add	load.imgaddr	load.imgaddr	four
-		be	load.incx	0		0
+		be	load.inclo	0		0
 
 
 load.flag	.data	0
-load.size	.data	2048
+load.sdr	.data	2048
+load.sdc	.data	-1
 load.start	.data	1024
 load.imgaddr	.data	0
 load.r		.data	0

@@ -13,7 +13,7 @@ two	.data	2
 three	.data	3
 four	.data	4
 i	.data	0
-size	.data	10
+size	.data	-32768
 
 x	.data	50
 y	.data	50
