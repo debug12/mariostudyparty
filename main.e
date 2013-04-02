@@ -2,7 +2,8 @@ start	call	clear	clear.r
 	call	load	load.r
 	cp	bmp.x	zero
 	cp	bmp.y	zero
-	cp	bmp.id	zero
+	cp	bmp.id	one
+	cp	bmp.scale	four
 	call	bmp	bmp.r
 end	halt
 

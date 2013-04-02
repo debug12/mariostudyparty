@@ -11,13 +11,13 @@ bmp		cp	bmp.curx1	zero
 		
 		// read the position of the image in memory and its size
 		mult	bmp.id		bmp.id		four
-		cpfa	bmp.mx		imgaddr		bmp.id
-		add	bmp.id		bmp.id		one
-		cpfa	bmp.my		imgaddr		bmp.id
-		add	bmp.id		bmp.id		one
 		cpfa	bmp.width	imgaddr		bmp.id
 		add	bmp.id		bmp.id		one
 		cpfa	bmp.height	imgaddr		bmp.id
+		add	bmp.id		bmp.id		one
+		cpfa	bmp.mx		imgaddr		bmp.id
+		add	bmp.id		bmp.id		one
+		cpfa	bmp.my		imgaddr		bmp.id
 		cp	sdr.write	zero
 
 bmp.pix		cp	sdr.x		bmp.mx

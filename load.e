@@ -10,7 +10,7 @@
 // however, some addtional data is written to the label specified
 // in imgaddr.e. for each image, four values are written, 
 // representing the location of the image in memory and the
-// image's size. ideally, when drawing an image, we will just specify
+// images size. ideally, when drawing an image, we will just specify
 // an index and call a procedure that will find the address and size of
 // the corresponding image.
 
@@ -26,10 +26,11 @@ load.write	// call sd card driver
 		cp	sdr.in		sdc.read
 		call	sdr		sdr.r
 	
-		// if the value is 1024 it's the beginning of an image
+		// if the value is 1024 its the beginning of an image
 		be	load.img	sdc.read	load.start
 		be	load.w		load.flag	one
 		be	load.h		load.flag	two
+		be	load.first	load.flag	three
 
 		// increment sdr.low
 load.inclo	add	sdc.low		sdc.low		one
@@ -51,11 +52,7 @@ load.incy	add	sdr.y		sdr.y		one
 
 load.ret	ret	load.r
 
-load.img	cpta	sdr.x		imgaddr		load.i
-		add	load.i		load.i		one		
-		cpta	sdr.y		imgaddr		load.i
-		add	load.i		load.i		one
-		cp	load.flag	one
+load.img	cp	load.flag	one
 		be	load.inclo	0		0
 
 load.w		cpta	sdc.read	imgaddr		load.i
@@ -63,7 +60,14 @@ load.w		cpta	sdc.read	imgaddr		load.i
 		cp	load.flag	two
 		be	load.inclo	0		0
 
-load.h		cpta	sdc.read	imgaddr		three
+load.h		cpta	sdc.read	imgaddr		load.i
+		add	load.i		load.i		one
+		cp	load.flag	three
+		be	load.inclo	0		0
+
+load.first	cpta	sdr.x		imgaddr		load.i
+		add	load.i		load.i		one		
+		cpta	sdr.y		imgaddr		load.i
 		add	load.i		load.i		one
 		cp	load.flag	zero
 		be	load.inclo	0		0
