@@ -31,3 +31,5 @@ vga.col 	.data 	0
 vga.response 	.data	0
 vga.r 		.data	0
 vga.write 	.data	1
+vga.w		.data	640
+vga.h		.data	480

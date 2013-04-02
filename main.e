@@ -1,4 +1,9 @@
-start	call	load	load.r
+start	call	clear	clear.r	
+	call	load	load.r
+	cp	bmp.x	zero
+	cp	bmp.y	zero
+	cp	bmp.id	zero
+	call	bmp	bmp.r
 end	halt
 
 zero	.data	0
@@ -15,4 +20,5 @@ four	.data	4
 #include drawImg.e
 #include load.e
 #include imgaddr.e
+#include clear.e
 

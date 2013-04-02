@@ -40,12 +40,12 @@ load.inchi	add	sdc.hi		sdc.hi		one
 		cp	sdc.low		zero
 		
 load.incx	add	sdr.x		sdr.x		one
-		be	load.incy	sdr.x		load.sdr
+		be	load.incy	sdr.x		sdr.size
 		be	load.write	0		0
 		
 load.incy	add	sdr.y		sdr.y		one
 		cp	sdr.x		zero
-		be	load.ret	sdr.y		load.sdr
+		be	load.ret	sdr.y		sdr.size
 	
 		be	load.write	0		0
 
