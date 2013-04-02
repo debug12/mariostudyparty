@@ -6,7 +6,7 @@
 // the next two values are the width and height of the image, followed
 // by the image data itself.
 //
-// the data is copied DIRECTLY into SDRAM, value-for-value. <--WILL PROBABLY CHANGE
+// the data is copied DIRECTLY into SDRAM, value-for-value (MIGHT CHANGE).
 // however, some addtional data is written to the label specified
 // in imgaddr.e. for each image, four values are written, 
 // representing the location of the image in memory and the
@@ -74,10 +74,8 @@ load.first	cpta	sdr.x		imgaddr		load.i
 
 
 load.flag	.data	0
-load.sdr	.data	2048
 load.sdc	.data	-1
 load.start	.data	1024
-load.imgaddr	.data	0
 load.i		.data	0
 load.j		.data	0
 load.r		.data	0

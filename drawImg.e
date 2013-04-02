@@ -1,7 +1,7 @@
-// draws a bitmap image of size bmp.width x bmp.width
+// draws a bitmap image
 // to the position (bmp.x, bmp.y)
-// the bitmap should be stored contiguously starting
-// at the address stored in bmp.addr
+// with scale bmp.scale
+// specify the image with bmp.id.
 
 		// initialize curx, cury, which are the locations
 		// of the current pixel were drawing RELATIVE to the

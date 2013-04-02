@@ -2,8 +2,8 @@
 // be at most 256 squares (16 x 16)
 
 // width and height.
-bd.w	.data	10
-bd.h	.data	10
+bd.w	.data	16
+bd.h	.data	12
 bd.dat	.data	0
 	.data	0
 	.data	0
