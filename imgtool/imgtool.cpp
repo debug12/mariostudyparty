@@ -5,11 +5,16 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
+	if (argc != 2) {
+		cout << "Invalid arguments.";
+		return -1;
+	}
+
 	//open up file containing image filenames
 	ifstream imgfile;
-	imgfile.open("img");
+	imgfile.open(argv[1]);
 	if (!imgfile) {
-		cout << "File 'img' does not exist.";
+		cout << "File '" << argv[1] << "' does not exist.";
 		return -1;
 	}
 
