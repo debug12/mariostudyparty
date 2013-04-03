@@ -74,3 +74,43 @@ imgaddr	.data	0
 	.data	0
 	.data	0
 	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0
+	.data	0

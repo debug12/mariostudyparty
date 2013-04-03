@@ -5,9 +5,7 @@ bd	mult	bmp.x	bd.cx	bd.size
 	mult	bd.val	bd.cy	bd.w
 	add	bd.val	bd.val	bd.cx
 	cpfa	bd.val	bd.dat	bd.val
-	be	bd.incx	bd.val	zero
 	cpfa	bmp.id	img.bd	bd.val
-	sub	bmp.id	bmp.id	one
 	call	bmp	bmp.r
 	
 bd.incx	add	bd.cx	bd.cx	one
