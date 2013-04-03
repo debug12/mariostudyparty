@@ -1,11 +1,9 @@
-start	call	clear	clear.r	
-	call	load	load.r
+start	call	clear		clear.r	
+	call	load		load.r
 
-	cp	bmp.x	zero
-	cp	bmp.y	zero
 	cp	bmp.scale	four
-	cp	bmp.id	four
-	call 	bmp	bmp.r
+
+	call	bd		bd.r
 
 end	halt
 
@@ -20,4 +18,6 @@ end	halt
 #include imgaddr.e
 #include clear.e
 #include num.e
+#include board.e
+#include imgnames.e
 

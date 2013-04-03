@@ -38,4 +38,4 @@ sdr.r		.data	0
 sdr.write 	.data	0
 sdr.in	 	.data	0
 sdr.out		.data	0
-sdr.size	.data	512
+sdr.size	.data	800
