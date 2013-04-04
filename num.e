@@ -9,3 +9,6 @@ seven	.data	7
 eight	.data	8
 nine	.data	9
 ten	.data	10
+thirteen	.data	13
+seventy	.data	70
+fifty	.data	50
