@@ -13,9 +13,7 @@ key.r2		in	21		key.res
 
 		ret	key.r
 
-on		.data	1
-off		.data	0
-response	.data	0
+key.res		.data	0
 key.press	.data	0
 key.val		.data	0
 key.r
