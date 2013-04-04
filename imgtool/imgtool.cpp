@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
+
 	//open up file containing image filenames
 	ifstream imgfile;
 	imgfile.open(argv[1]);
