@@ -10,6 +10,8 @@ start	call	clear		clear.r
 wait	call	key		key.r
 	be	wait		key.press	zero
 
+	call	menu		menu.r
+
 	call	bd		bd.r
 
 end	halt
@@ -29,4 +31,5 @@ end	halt
 #include num.e
 #include board.e
 #include imgnames.e
+#include menu.e
 

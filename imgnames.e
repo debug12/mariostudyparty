@@ -12,3 +12,9 @@ img.die		.data	8
 		.data	11
 		.data	12
 		.data	13
+img.players	.data	14
+img.rounds	.data	15
+img.num		.data	16
+		.data	17
+		.data	18
+		.data	19
