@@ -1,3 +1,4 @@
+negone	.data	-1
 zero	.data	0
 one	.data	1
 two	.data	2
@@ -9,6 +10,8 @@ seven	.data	7
 eight	.data	8
 nine	.data	9
 ten	.data	10
+twenty	.data	20
+twentyfive	.data	25
 thirteen	.data	13
 seventy	.data	70
 fifty	.data	50

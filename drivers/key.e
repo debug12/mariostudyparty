@@ -16,10 +16,10 @@ key.r2		in	21		key.res
 key.res		.data	0
 key.press	.data	0
 key.val		.data	0
-key.r
-key.left	.data	37
-key.up		.data	38
-key.right	.data	39
-key.down	.data	40
+key.r		.data	0
+key.a		.data	97
+key.w		.data	119
+key.s		.data	115
+key.d		.data	100
 key.space	.data	32
 key.enter	.data	13

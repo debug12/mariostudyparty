@@ -22,8 +22,11 @@ int main(int argc, char *argv[]) {
 	//open up file to write image data to
 	ofstream out;
 	out.open("img_sd_data", fstream::trunc | fstream::out | fstream::binary);
+	ofstream names;
+	names.open("../imgnames.e", fstream::trunc | fstream::out);
 
 	int i = 0;
+	int num = 0;
 
 	while (true) {
 		string filename;
@@ -34,6 +37,11 @@ int main(int argc, char *argv[]) {
 			cout << "File '" << filename << "' does not exist.";
 			return -1;		
 		}
+		
+		filename = filename.substr(0, filename.length() - 4);
+		names << "img." << filename << "\t\t\t" << ".data\t" << num << '\n';
+		num++;
+
 		short val = 1024;
 		out.write((char*)&val, 2);
 		val = img.getSize().x;
@@ -60,4 +68,5 @@ int main(int argc, char *argv[]) {
 
 	out.close();
 	imgfile.close();
+	names.close();
 }

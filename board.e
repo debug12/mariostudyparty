@@ -1,21 +1,21 @@
 // BOARD
 
-bd	mult	bmp.x	bd.cx	bd.size
-	mult	bmp.y	bd.cy	bd.size
-	mult	bd.val	bd.cy	bd.w
-	add	bd.val	bd.val	bd.cx
-	cpfa	bd.val	bd.dat	bd.val
-	cpfa	bmp.id	img.bd	bd.val
+bd	mult	bmp.x	bd.cx		bd.size
+	mult	bmp.y	bd.cy		bd.size
+	mult	bd.val	bd.cy		bd.w
+	add	bd.val	bd.val		bd.cx
+	cpfa	bd.val	bd.dat		bd.val
+	cpfa	bmp.id	img.grass	bd.val
 	call	bmp	bmp.r
 	
-bd.incx	add	bd.cx	bd.cx	one
-	be	bd.incy	bd.cx	bd.w
-	be	bd	0	0
+bd.incx	add	bd.cx	bd.cx		one
+	be	bd.incy	bd.cx		bd.w
+	be	bd	0		0
 
-bd.incy	add	bd.cy	bd.cy	one
-	be	bd.end	bd.cy	bd.h
+bd.incy	add	bd.cy	bd.cy		one
+	be	bd.end	bd.cy		bd.h
 	cp	bd.cx	zero
-	be	bd	0	0
+	be	bd	0		0
 
 bd.end	ret	bd.r
 

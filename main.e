@@ -32,4 +32,6 @@ end	halt
 #include board.e
 #include imgnames.e
 #include menu.e
+#include game.e
+#include col.e
 

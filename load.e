@@ -74,7 +74,7 @@ load.first	cpta	sdr.x		imgaddr		load.i
 
 
 load.flag	.data	0
-load.sdc	.data	-1
+load.sdc	.data	32768
 load.start	.data	1024
 load.i		.data	0
 load.j		.data	0

@@ -2,6 +2,9 @@
 // to the position (bmp.x, bmp.y)
 // with scale bmp.scale
 // specify the image with bmp.id.
+// ADDED OPTION
+// if you set col to something other than -1, all
+// pixels of image are drawn in that color.
 
 		// initialize curx, cury, which are the locations
 		// of the current pixel were drawing RELATIVE to the
@@ -23,12 +26,16 @@ bmp		cp	bmp.curx1	zero
 bmp.pix		cp	sdr.x		bmp.mx
 		cp	sdr.y		bmp.my
 		call	sdr		sdr.r
-		cp	vga.col		sdr.out		
+
+		cp		vga.col		sdr.out	
 
 		// if the color is the color key, we dont draw it
 		be	bmp.incmx	vga.col		bmp.key
 
-		mult	vga.x1		bmp.curx1	bmp.scale
+		be	bmp.after	bmp.col		negone
+		cp	vga.col		bmp.col
+
+bmp.after	mult	vga.x1		bmp.curx1	bmp.scale
 		mult	vga.y1		bmp.cury1	bmp.scale
 		
 		add	vga.x1		vga.x1		bmp.x
@@ -90,6 +97,8 @@ bmp.key		.data	227
 
 // scale
 bmp.scale	.data	1
+
+bmp.col		.data	-1
 
 
 
