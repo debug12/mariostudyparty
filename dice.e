@@ -1,7 +1,7 @@
 //DICE 
 //Authored by: Deepak Kumar
 
-dice2			cp	bmp.x		dice.x
+dice2			cp	bmp.x		dice.x 
 			cp	bmp.y		dice.y
 
 dice2.time		add	dice2.val	dice2.val	one
