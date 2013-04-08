@@ -30,7 +30,7 @@ dice.reset		cp		dice.val	dice.num
 			be      	dice		zero		zero
 
 dice.key		call		key		key.r
-			bne		dice.key	key.val		key.space
+			bne		dice		key.val		key.space
 			be 		dice.finish	key.val		key.space
 
 dance.finish 		cp		dice.out	dice.val
