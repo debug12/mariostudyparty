@@ -7,12 +7,18 @@ start	call	clear		clear.r
 	cp	bmp.id		img.bg
 	call	bmp		bmp.r
 
-wait	call	key		key.r
-	be	wait		key.press	zero
+	call	wait		wait.r
 
 	call	menu		menu.r
 
+	cp	bd.quad		five
 	call	bd		bd.r
+
+	call	info		info.r
+		
+	call	rollfirst	rollfirst.r
+
+	call	gui		gui.r
 
 end	halt
 
@@ -34,4 +40,10 @@ end	halt
 #include menu.e
 #include game.e
 #include col.e
-
+#include gui.e
+#include rect.e
+#include drawnum.e
+#include players.e
+#include info.e
+#include util.e
+#include rollfirst.e
