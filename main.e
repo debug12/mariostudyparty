@@ -16,7 +16,12 @@ start	call	clear		clear.r
 
 	call	info		info.r
 		
-	call	rollfirst	rollfirst.r
+	//call	rollfirst	rollfirst.r
+
+	cp	bd.quad		three
+	call	bd		bd.r
+
+	call	players.draw	players.r
 
 	call	gui		gui.r
 
@@ -29,6 +34,7 @@ end	halt
 #include drivers/sdr.e
 #include drivers/key.e
 #include drivers/snd.e
+#include drivers/time.e
 
 #include drawImg.e
 #include load.e
@@ -47,3 +53,4 @@ end	halt
 #include info.e
 #include util.e
 #include rollfirst.e
+#include dice.e
