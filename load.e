@@ -28,9 +28,13 @@ load.write	// call sd card driver
 	
 		// if the value is 1024 its the beginning of an image
 		be	load.img	sdc.read	load.start
+		be	load.sound	sdc.read	load.sstart
 		be	load.w		load.flag	one
 		be	load.h		load.flag	two
 		be	load.first	load.flag	three
+		be	load.s1		load.flag	four
+		be	load.s2		load.flag	five
+		be	load.sfirst	load.flag	six
 
 		// increment sdr.low
 load.inclo	add	sdc.low		sdc.low		one
@@ -51,6 +55,27 @@ load.incy	add	sdr.y		sdr.y		one
 		be	load.write	0		0
 
 load.ret	ret	load.r
+
+load.sound	cp	load.flag	four
+		be	load.inclo	0		0
+
+load.s1		cpta	sdc.read	imgaddr		load.i
+		add	load.i		load.i		one
+		cp	load.flag	five
+		be	load.inclo	0		0
+
+load.s2		cpta	sdc.read	imgaddr		load.i
+		add	load.i		load.i		one
+		cp	load.flag	six
+		be	load.inclo	0		0
+
+load.sfirst	cpta	sdc.low		imgaddr		load.i
+		add	load.i		load.i		one
+		cpta	sdc.hi		imgaddr		load.i
+		add	load.i		load.i		one
+		add	load.i		load.i		one
+		cp	load.flag	zero
+		be	load.inclo	0		0
 
 load.img	cp	load.flag	one
 		be	load.inclo	0		0
@@ -76,6 +101,7 @@ load.first	cpta	sdr.x		imgaddr		load.i
 load.flag	.data	0
 load.sdc	.data	32768
 load.start	.data	1024
+load.sstart	.data	1025
 load.i		.data	0
 load.j		.data	0
 load.r		.data	0

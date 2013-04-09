@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <fstream>
 #include <iostream>
 
@@ -32,33 +33,60 @@ int main(int argc, char *argv[]) {
 		string filename;
 		imgfile >> filename;
 		if (imgfile.eof()) break;
-		sf::Image img;
-		if (!img.loadFromFile(filename)) {
-			cout << "File '" << filename << "' does not exist.";
-			return -1;		
-		}
-		
+
+		string ext = filename.substr(filename.length() - 3, 3);
 		filename = filename.substr(0, filename.length() - 4);
-		names << "img." << filename << "\t\t\t" << ".data\t" << num << '\n';
+		if (ext == "bmp")
+			names << "img." << filename << "\t\t\t" << ".data\t" << num << '\n';
+		else
+			names << "snd." << filename << "\t\t\t" << ".data\t" << num << '\n';
 		num++;
-
-		short val = 1024;
-		out.write((char*)&val, 2);
-		val = img.getSize().x;
-		out.write((char*)&val, 2);
-		val = img.getSize().y;
-		out.write((char*)&val, 2);		
-
-		for (int y = 0; y < img.getSize().y; y++) {
-			for (int x = 0; x < img.getSize().x; x++) {
-				sf::Color c = img.getPixel(x, y);
-				char r = (c.r / 255.0) * 7.0 + 0.5;
-				char g = (c.g / 255.0) * 7.0 + 0.5;
-				char b = (c.b / 255.0) * 3.0 + 0.5;
-				short col = (r << 5) | (g << 2) | b;
-				out.write((char*)&col, 2);
-				i++;
+		if (ext == "bmp") {
+			sf::Image img;
+			if (!img.loadFromFile(filename + "." + ext)) {
+				cout << "File '" << filename << "' does not exist.";
+				return -1;		
 			}
+		
+			short val = 1024;
+			out.write((char*)&val, 2);
+			val = img.getSize().x;
+			out.write((char*)&val, 2);
+			val = img.getSize().y;
+			out.write((char*)&val, 2);
+
+			for (int y = 0; y < img.getSize().y; y++) {
+				for (int x = 0; x < img.getSize().x; x++) {
+					sf::Color c = img.getPixel(x, y);
+					char r = (c.r / 255.0) * 7.0 + 0.5;
+					char g = (c.g / 255.0) * 7.0 + 0.5;
+					char b = (c.b / 255.0) * 3.0 + 0.5;
+					short col = (r << 5) | (g << 2) | b;
+					out.write((char*)&col, 2);
+					i++;
+				}
+			}
+		} else {
+
+			sf::SoundBuffer sound;
+			if (!sound.loadFromFile(filename + "." + ext)) {
+				cout << "File '" << filename << "' does not exist.";
+				return -1;
+			}
+			
+			short val = 1025;
+			out.write((char*)&val, 2);
+			val = (sound.getSampleCount() / 2) % 10000;
+			out.write((char*)&val, 2);
+			val = (sound.getSampleCount() / 2) / 10000;
+			out.write((char*)&val, 2);
+
+			const short *buffer = sound.getSamples();
+			for (int j = 0; j < sound.getSampleCount(); j += 2) {
+				val = buffer[j];
+				out.write((char*)&val, 2);
+			}
+			
 		}
 	}
 

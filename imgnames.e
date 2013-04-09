@@ -55,3 +55,4 @@ img.player1			.data	53
 img.player2			.data	54
 img.player3			.data	55
 img.player4			.data	56
+snd.mario			.data	57
