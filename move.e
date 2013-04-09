@@ -25,7 +25,6 @@ move.m1		sub	move.spaces	move.spaces	one
 		be	move.res	move.cur	bd.size
 move.m2		cpta	move.cur	players.loc	players.id
 		call	players.draw	players.r
-		call	gui		gui.r
 		call	waittime	waittime.r
 		be	move.m1		0		0
 	
