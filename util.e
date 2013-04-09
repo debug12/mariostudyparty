@@ -7,6 +7,7 @@ wait	call	key		key.r
 
 
 waittime	add	waittime.iter	waittime.iter		one
+			add	waittime.iter2	waittime.iter2		one
 			be	waittime	waittime.iter	waittime.value
 			be	waittime	waittime.iter2	waittime.value
 			cp	waittime.iter	zero
