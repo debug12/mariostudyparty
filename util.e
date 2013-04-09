@@ -4,13 +4,19 @@ wait	call	key		key.r
 	
 	ret	wait.r
 
-waittime	add	waittime	waittime		one
+
+
+waittime	add	waittime.iter	waittime.iter		one
 			be	waittime	waittime.iter	waittime.value
+			be	waittime	waittime.iter2	waittime.value
 			cp	waittime.iter	zero
 			ret	waittime.r
+
+
 
 
 wait.r			.data	0
 waittime.r 		.data	0
 waittime.value	.data	0
 waittime.iter	.data	0
+waittime.iter2	.data	0
