@@ -26,7 +26,7 @@ music.incilo	add	music.ilo	music.ilo	one
 		bne	music.skip	music.ilo	music.s1
 		bne	music.skip	music.ihi	music.s2
 
-		be	music.end	0		0
+		be	music.end	0		0 
 
 music.skip	be	music.incihi	music.ilo	music.imax
 		be	music.inclo	0		0
