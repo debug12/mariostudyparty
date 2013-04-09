@@ -51,3 +51,7 @@ img.bg6			.data	49
 img.info1			.data	50
 img.info2			.data	51
 img.info3			.data	52
+img.player1			.data	53
+img.player2			.data	54
+img.player3			.data	55
+img.player4			.data	56

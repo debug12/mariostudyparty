@@ -1,24 +1,52 @@
-players.draw	cpfa	bmp.id		img.mario	players.id
+players.intro	cpfa	bmp.id		img.player1	players.id
+		cp	bmp.x		players.introx
+		cp	bmp.y		players.introy
+		call	bmp		bmp.r
 
-		cpfa	bmp.x		players.loc	players.id
-		mult	bmp.x		bmp.x		five
-		cpfa	bmp.x		bd.dat		bmp.x
+		ret	players.r
+
+players.draw	cp	players.i	zero	
+		cpfa	players.index	players.loc	players.id
+		mult	players.index	players.index	five
+		add	bmp.id		players.index	two
+		cpfa	bmp.id		bd.dat		bmp.id
+		cp	bd.quad		bmp.id
+		call	bd		bd.r
+		
+players.draw1	cpfa	players.index	players.loc	players.i
+		mult	players.index	players.index	five
+		add	bmp.id		players.index	two
+		cpfa	bmp.id		bd.dat		bmp.id
+		cp	players.temp	bmp.id
+		bne	players.inci	players.temp	bd.quad
+
+		cpfa	bmp.id		img.mario	players.i
+		cpfa	bmp.x		bd.dat		players.index
 		mult	bmp.x		bmp.x		four
-
-		cpfa	bmp.y		players.loc	players.id
-		mult	bmp.y		bmp.y		five
-		add	bmp.y		bmp.y		one
+	
+		bne	players.asd	players.index	zero
+		mult	players.temp	players.i	players.spacing
+		add	bmp.x		bmp.x		players.temp
+		
+players.asd	add	bmp.y		players.index	one
 		cpfa	bmp.y		bd.dat		bmp.y
 		mult	bmp.y		bmp.y		four
 		
 		call	bmp		bmp.r
 
+players.inci	add	players.i	players.i	one
+		bne	players.draw1	players.i	four
+
 players.end	ret	players.r
 
+players.index	.data	0
+players.i	.data	0
+players.introx	.data	80
+players.introy	.data	160
 players.r	.data	0
 players.id	.data	0
-
-
+players.temp	.data	0
+players.spacing	.data	32
 players.coins	.data	0
 		.data	0
 		.data	0
@@ -27,7 +55,7 @@ players.stars	.data	0
 		.data	0
 		.data	0
 		.data	0
-players.loc	.data	1
-		.data	5
-		.data	6
-		.data	8
+players.loc	.data	0
+		.data	1
+		.data	2
+		.data	15

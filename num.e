@@ -18,5 +18,6 @@ twentyfour	.data	24
 twentyfive	.data	25
 thirteen	.data	13
 seventy	.data	70
+forty	.data	40
 fifty	.data	50
 hundred	.data	100

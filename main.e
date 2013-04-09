@@ -18,8 +18,8 @@ start	call	clear		clear.r
 		
 	//call	rollfirst	rollfirst.r
 
-	cp	bd.quad		three
-	call	bd		bd.r
+	//cp	bd.quad		three
+	//call	bd		bd.r
 
 	call	players.draw	players.r
 
