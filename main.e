@@ -1,16 +1,13 @@
 start	call	clear		clear.r	
 	call	load		load.r
-	cp	bmp.scale	four
 
+	call	music.init	music.initr
+
+	cp	bmp.scale	four
 	cp	bmp.x		zero
 	cp	bmp.y		zero
 	cp	bmp.id		img.bg
 	call	bmp		bmp.r
-
-	call	music.init	music.initr
-
-mus	call	music.play	music.r
-	be	mus		0		0
 
 	call	wait		wait.r
 

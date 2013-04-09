@@ -19,7 +19,7 @@ key.r2		in	21		key.res
 		ret	key.r
 
 key.i		.data	0
-key.iter	.data	1000
+key.iter	.data	1
 key.res		.data	0
 key.press	.data	0
 key.val		.data	0

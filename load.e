@@ -69,10 +69,9 @@ load.s2		cpta	sdc.read	imgaddr		load.i
 		cp	load.flag	six
 		be	load.inclo	0		0
 
-load.sfirst	cpta	sdc.low		imgaddr		load.i
+load.sfirst	cpta	sdr.x		imgaddr		load.i
 		add	load.i		load.i		one
-		cpta	sdc.hi		imgaddr		load.i
-		add	load.i		load.i		one
+		cpta	sdr.y		imgaddr		load.i
 		add	load.i		load.i		one
 		cp	load.flag	zero
 		be	load.inclo	0		0

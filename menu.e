@@ -34,6 +34,7 @@ menu.drawops	cp	bmp.col		menu.po
 	call	bmp		bmp.r
 
 menu.w1	call	key		key.r
+	call	music.play	music.r
 	be	menu.keypress	key.press	one
 	
 	be	menu.drawops	0		0

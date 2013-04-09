@@ -23,7 +23,10 @@ bmp		cp	bmp.curx1	zero
 		cpfa	bmp.my		imgaddr		bmp.id
 		cp	sdr.write	zero
 
-bmp.pix		cp	sdr.x		bmp.mx
+bmp.pix		//we are always playing music
+		//call	music.play	music.r
+
+		cp	sdr.x		bmp.mx
 		cp	sdr.y		bmp.my
 		call	sdr		sdr.r
 
