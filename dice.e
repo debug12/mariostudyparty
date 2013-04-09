@@ -15,7 +15,6 @@ dice.skip		add	bmp.id		img.die1	dice.val
 
 			ret	dice.r
 
-dice.val		.data	0
 
 
 dice.r		.data	0
