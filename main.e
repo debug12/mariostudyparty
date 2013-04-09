@@ -22,6 +22,7 @@ start	call	clear		clear.r
 	//call	bd		bd.r
 
 	call	players.draw	players.r
+	call	dice	dice.r
 
 	call	gui		gui.r
 
