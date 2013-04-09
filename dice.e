@@ -4,14 +4,14 @@
 dice			cp	bmp.x		dice.x 
 			cp	bmp.y		dice.y
 
-dice.time		add	dice2.val	dice2.val	one
-				bne	dice2.skip	dice2.val	six
-				cp	dice2.val	zero
+dice.time		add	dice.val	dice.val	one
+				bne	dice.skip	dice.val	six
+				cp	dice.val	zero
 
-dice.skip		add	bmp.id		img.die1	dice2.val
+dice.skip		add	bmp.id		img.die1	dice.val
 			call	bmp		bmp.r
 			call	key		key.r
-			be	dice2.time	key.press	zero
+			be	dice.time	key.press	zero
 
 			ret	dice.r
 
