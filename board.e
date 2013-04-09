@@ -10,6 +10,7 @@ bd.end	ret	bd.r
 // width and height.
 bd.quad	.data	4
 bd.r	.data	0
+bd.size	.data	33
 bd.dat	.data	70
 	.data	42
 	.data	3
@@ -143,8 +144,7 @@ bd.dat	.data	70
 	.data	0
 
 	.data	136
-	.data	1
-	.data	0
+	.data	15
 	.data	0
 	.data	0
 	.data	0

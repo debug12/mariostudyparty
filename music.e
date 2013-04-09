@@ -50,6 +50,7 @@ music.inchi	add	music.loc2	music.loc2	one
 		be	music.ret	0		0
 
 music.end	call	music.init	music.initr
+		cp	music.finish	one
 
 music.ret	add	music.iter	music.iter	one
 		be	music.aret	music.iter	music.samp
@@ -57,6 +58,7 @@ music.ret	add	music.iter	music.iter	one
 music.aret	ret	music.r
 	
 
+music.finish	.data	0
 music.iter	.data	0
 music.ilo	.data	0
 music.ihi	.data	0

@@ -22,31 +22,31 @@ rollfirst	cp	bd.quad		five
 
 		cp	dice.x		rollfirst.x
 		cp	dice.y		rollfirst.dy
-		call	dice2		dice.r
+		call	dice		dice.r
 
-		blt	rollfirst.r2	dice2.val	rollfirst.max
-		cp	rollfirst.max	dice2.val
+		blt	rollfirst.r2	dice.val	rollfirst.max
+		cp	rollfirst.max	dice.val
 		cp	rollfirst.first	zero
 
 rollfirst.r2	add	dice.x		dice.x		rollfirst.dx
-		call	dice2		dice.r
+		call	dice		dice.r
 
-		blt	rollfirst.r3	dice2.val	rollfirst.max
-		cp	rollfirst.max	dice2.val
+		blt	rollfirst.r3	dice.val	rollfirst.max
+		cp	rollfirst.max	dice.val
 		cp	rollfirst.first	one
 
 rollfirst.r3	add	dice.x		dice.x		rollfirst.dx
-		call	dice2		dice.r
+		call	dice		dice.r
 
-		blt	rollfirst.r4	dice2.val	rollfirst.max
-		cp	rollfirst.max	dice2.val
+		blt	rollfirst.r4	dice.val	rollfirst.max
+		cp	rollfirst.max	dice.val
 		cp	rollfirst.first	two
 
 rollfirst.r4	add	dice.x		dice.x		rollfirst.dx
-		call	dice2		dice.r
+		call	dice		dice.r
 
-		blt	rollfirst.r5	dice2.val	rollfirst.max
-		cp	rollfirst.max	dice2.val
+		blt	rollfirst.r5	dice.val	rollfirst.max
+		cp	rollfirst.max	dice.val
 		cp	rollfirst.first	three
 
 rollfirst.r5	call	wait		wait.r

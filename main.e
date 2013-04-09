@@ -9,7 +9,11 @@ start	call	clear		clear.r
 	cp	bmp.id		img.bg
 	call	bmp		bmp.r
 
-	call	wait		wait.r
+mus	//call	music.play	music.r
+	//be	musp		music.finish	one
+	//be	mus		0		0
+
+musp	call	wait		wait.r
 
 	call	menu		menu.r
 
@@ -17,15 +21,18 @@ start	call	clear		clear.r
 	call	bd		bd.r
 
 	call	info		info.r
-		
-	//call	rollfirst	rollfirst.r
 
 	//cp	bd.quad		three
 	//call	bd		bd.r
 
+	cp	players.id	zero
 	call	players.draw	players.r
+	call	gui		gui.r		
 
-	call	gui		gui.r
+	call	move		move.r
+	call	wait		wait.r
+
+	
 
 end	halt
 
@@ -57,3 +64,4 @@ end	halt
 #include rollfirst.e
 #include dice.e
 #include music.e
+#include move.e
