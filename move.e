@@ -1,4 +1,6 @@
-move	call	players.intro	players.r
+move	call	players.draw	players.r
+
+	call	players.intro	players.r
 	
 	call	wait		wait.r
 
@@ -14,7 +16,7 @@ move	call	players.intro	players.r
 	//call	players.draw	players.r
 	//call	gui		gui.r
 
-	cp	move.spaces	move.x
+	cp	move.spaces	dice.val
 	add	move.spaces	move.spaces	one
 	cpfa	move.cur	players.loc	players.id
 	cp	waittime.value	move.delay
@@ -35,7 +37,6 @@ move.res	cp	move.cur	one
 move.end	ret	move.r
 
 move.r	.data	0
-move.x	.data	40
 move.dx	.data	280
 move.dy	.data	200
 move.delay	.data	1000

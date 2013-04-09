@@ -23,14 +23,19 @@ musp	call	wait		wait.r
 	call	info		info.r
 
 	//cp	bd.quad		three
-	//call	bd		bd.r
+	//call	bd		bd.r	
 
-	cp	players.id	zero
-	call	players.draw	players.r
-	call	gui		gui.r		
-
+main	cp	players.id	game.curPlayer
 	call	move		move.r
+	call	gui		gui.r
 	call	wait		wait.r
+	add	game.curPlayer 	game.curPlayer	one
+	be	res		game.curPlayer	four
+	be	main		0		0
+
+res	cp	game.curPlayer	zero
+	be	main		0		0
+
 
 	
 
