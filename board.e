@@ -4,6 +4,7 @@ bd	cpfa	bmp.id	img.bg1		bd.quad
 	cp	bmp.x	zero
 	cp	bmp.y	zero
 	call	bmp	bmp.r
+	call	star	star.r
 
 bd.end	ret	bd.r
 
@@ -126,8 +127,8 @@ bd.dat	.data	70
 
 	.data	45
 	.data	45
-	.data	4
 	.data	1
+	.data	4
 	.data	0
 
 	.data	41

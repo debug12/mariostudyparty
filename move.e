@@ -40,11 +40,21 @@ move.end	cpfa	move.coins	players.coins	players.id
 		add	move.spot	move.spot	three
 		cpfa	move.spot	bd.dat		move.spot
 
+		be	move.star	move.cur	game.star
 		be	move.blue	move.spot	bd.blue
 		be	move.red	move.spot	bd.red
 		be	move.bowser	move.spot	bd.bowser
 		be	move.store	move.spot	bd.store
 		be	move.event	move.spot	bd.event
+		be	move.ret	0		0
+
+move.star	cp	bd.quad		five
+		call	bd		bd.r
+		cp	bmp.x		zero
+		cp	bmp.y		zero
+		cp	bmp.id		img.chenstar
+		call	bmp		bmp.r
+		call	wait		wait.r
 		be	move.ret	0		0
 
 move.blue	add	move.coins	move.coins	game.bluecoins

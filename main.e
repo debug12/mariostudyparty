@@ -70,3 +70,4 @@ end	halt
 #include dice.e
 #include music.e
 #include move.e
+#include star.e

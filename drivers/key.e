@@ -1,7 +1,13 @@
 // keyboard driver
 
-key		cp	key.press	zero	
-		out 	20		one
+key		cp	key.press	zero
+		add	key.j		key.j		one
+		
+		be	key.r0		key.j		key.jfreq
+		be	key.end		0		0
+
+key.r0		out 	20		one
+		cp	key.j		zero
 key.r1		in	21		key.res
 		add	key.i		key.i		one
 		be	key.check	key.i		key.iter
@@ -16,8 +22,10 @@ key.r1.5	out	20		zero
 key.r2		in	21		key.res
 		bne	key.r2		key.res		zero
 
-		ret	key.r
+key.end		ret	key.r
 
+key.j		.data	0
+key.jfreq	.data	1
 key.i		.data	0
 key.iter	.data	1
 key.res		.data	0

@@ -63,4 +63,6 @@ img.wheel1			.data	61
 img.wheel2			.data	62
 img.wheel3			.data	63
 img.wheel4			.data	64
-snd.mario			.data	65
+img.star			.data	65
+img.chenstar			.data	66
+snd.mario			.data	67
