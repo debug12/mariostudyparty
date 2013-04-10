@@ -52,10 +52,31 @@ move.star	cp	bd.quad		five
 		call	bd		bd.r
 		cp	bmp.x		zero
 		cp	bmp.y		zero
+move.enough	cpfa	move.coins	players.coins	players.id
+		blt	move.notenough	move.coins	twenty
+
+
 		cp	bmp.id		img.chenstar
 		call	bmp		bmp.r
-		call	wait		wait.r
-		be	move.ret	0		0
+move.starwait	call	key		key.r
+		be	move.enough	key.val		key.y
+		be	move.starend	key.val		key.n
+		be	move.starwait	0		0
+
+move.enough	cpfa	move.coins	players.coins	players.id
+		blt	move.starend	move.coins	twenty
+
+move.staryes	cpfa	move.stars	players.stars	players.id
+		add	move.stars	move.stars	one
+		sub	move.coins	move.coins	twenty
+		cpta	move.stars	players.stars	players.id
+		cpta	move.coins	players.coins	players.id
+
+
+move.starend	be	move.ret	0		0
+
+move.notenough	cp	bmp.id		img.chenstar2
+		call	bmp		bmp.r
 
 move.blue	add	move.coins	move.coins	game.bluecoins
 		cpta	move.coins	players.coins	players.id
@@ -118,6 +139,7 @@ move.wheelx	.data	200
 move.wheely	.data	120
 move.spot	.data	0
 move.coins	.data	0
+move.stars	.data	0
 move.r	.data	0
 move.dx	.data	280
 move.dy	.data	200
