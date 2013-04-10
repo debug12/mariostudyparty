@@ -47,15 +47,15 @@ players.r	.data	0
 players.id	.data	0
 players.temp	.data	0
 players.spacing	.data	32
-players.coins	.data	0
-		.data	0
-		.data	0
-		.data	0
+players.coins	.data	10
+		.data	10
+		.data	10
+		.data	10
 players.stars	.data	0
 		.data	0
 		.data	0
 		.data	0
 players.loc	.data	0
-		.data	1
-		.data	2
-		.data	15
+		.data	0
+		.data	0
+		.data	0

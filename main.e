@@ -12,7 +12,7 @@ start	call	clear		clear.r
 mus	//call	music.play	music.r
 	//be	musp		music.finish	one
 	//be	mus		0		0
-
+	
 musp	call	wait		wait.r
 
 	call	menu		menu.r

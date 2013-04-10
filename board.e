@@ -13,6 +13,9 @@ bd.r	.data	0
 bd.size	.data	32
 bd.blue	.data	1
 bd.red	.data	2
+bd.event	.data	5
+bd.bowser	.data	4
+bd.store	.data	3
 bd.dat	.data	70
 	.data	42
 	.data	3
@@ -58,19 +61,19 @@ bd.dat	.data	70
 	.data	42
 	.data	58
 	.data	2
-	.data	2
+	.data	3
 	.data	0
 
 	.data	64
 	.data	63
 	.data	2
-	.data	1
+	.data	4
 	.data	0
 
 	.data	82
 	.data	56
 	.data	2
-	.data	1
+	.data	5
 	.data	0
 
 	.data	92
@@ -123,7 +126,7 @@ bd.dat	.data	70
 
 	.data	45
 	.data	45
-	.data	1
+	.data	4
 	.data	1
 	.data	0
 
@@ -196,7 +199,7 @@ bd.dat	.data	70
 	.data	48
 	.data	43
 	.data	3
-	.data	1
+	.data	5
 	.data	0
 
 	.data	61

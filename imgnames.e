@@ -55,4 +55,12 @@ img.player1			.data	53
 img.player2			.data	54
 img.player3			.data	55
 img.player4			.data	56
-snd.mario			.data	57
+img.bowser			.data	57
+img.bowser1			.data	58
+img.bowser2			.data	59
+img.bowser3			.data	60
+img.wheel1			.data	61
+img.wheel2			.data	62
+img.wheel3			.data	63
+img.wheel4			.data	64
+snd.mario			.data	65

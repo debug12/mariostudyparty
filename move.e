@@ -42,6 +42,9 @@ move.end	cpfa	move.coins	players.coins	players.id
 
 		be	move.blue	move.spot	bd.blue
 		be	move.red	move.spot	bd.red
+		be	move.bowser	move.spot	bd.bowser
+		be	move.store	move.spot	bd.store
+		be	move.event	move.spot	bd.event
 		be	move.ret	0		0
 
 move.blue	add	move.coins	move.coins	game.bluecoins
@@ -51,15 +54,58 @@ move.blue	add	move.coins	move.coins	game.bluecoins
 move.red	blt	move.red2	two		move.coins
 		be	move.ret	0		0
 
+move.bowser	cp	bd.quad		five
+		call	bd		bd.r	
+		cp	bmp.x		zero
+		cp	bmp.y		zero
+		cp	bmp.id		img.bowser1
+		call	bmp		bmp.r
+		call	wait		wait.r
+		cp	bmp.id		img.bowser2
+		call	bmp		bmp.r
+		call	wait		wait.r
+
+		cp	waittime.value	move.delay
+		cp	bmp.x		move.wheelx
+		cp	bmp.y		move.wheely
+move.wheel	be	move.endwheel	move.wheeli	four
+		cpfa	bmp.id		img.wheel1	move.wheeli
+		call	bmp		bmp.r
+		add	move.wheeli	move.wheeli	one
+		call	waittime	waittime.r
+		be	move.wheel	0		0
+		
+		
+move.endwheel	cp	move.wheeli	zero
+		call	wait		wait.r
+		cp	bmp.x		zero
+		cp	bmp.y		zero
+		cp	bmp.id		img.bowser1
+		call	bmp		bmp.r
+		call	wait		wait.r
+		cp	bmp.id		img.bowser3
+		call	bmp		bmp.r
+		call	wait		wait.r
+		cpta	zero		players.coins	one
+		be	move.ret	0		0
+
+move.store	
+		be	move.ret	0		0
+
+move.event	be	move.ret	0		0
+
 move.red2	sub	move.coins	move.coins	game.redcoins
 		cpta	move.coins	players.coins	players.id
 		be	move.ret	0		0
 
-move.ret	//call	players.draw	players.r
+move.ret	call	players.draw	players.r
 		call	gui		gui.r	
 		ret	move.r
 
 
+move.wheeli	.data	0
+move.wheelx	.data	200
+move.wheely	.data	120
 move.spot	.data	0
 move.coins	.data	0
 move.r	.data	0
