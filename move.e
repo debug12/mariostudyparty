@@ -34,8 +34,34 @@ move.res	cp	move.cur	one
 		be	move.m2		0		0
 
 
-move.end	ret	move.r
+move.end	cpfa	move.coins	players.coins	players.id
 
+		mult	move.spot	move.cur	five
+		add	move.spot	move.spot	three
+		cpfa	move.spot	bd.dat		move.spot
+
+		be	move.blue	move.spot	bd.blue
+		be	move.red	move.spot	bd.red
+		be	move.ret	0		0
+
+move.blue	add	move.coins	move.coins	game.bluecoins
+		cpta	move.coins	players.coins	players.id
+		be	move.ret	0		0
+
+move.red	blt	move.red2	two		move.coins
+		be	move.ret	0		0
+
+move.red2	sub	move.coins	move.coins	game.redcoins
+		cpta	move.coins	players.coins	players.id
+		be	move.ret	0		0
+
+move.ret	//call	players.draw	players.r
+		call	gui		gui.r	
+		ret	move.r
+
+
+move.spot	.data	0
+move.coins	.data	0
 move.r	.data	0
 move.dx	.data	280
 move.dy	.data	200

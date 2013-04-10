@@ -11,6 +11,8 @@ bd.end	ret	bd.r
 bd.quad	.data	4
 bd.r	.data	0
 bd.size	.data	32
+bd.blue	.data	1
+bd.red	.data	2
 bd.dat	.data	70
 	.data	42
 	.data	3
