@@ -52,18 +52,18 @@ move.star	cp	bd.quad		five
 		call	bd		bd.r
 		cp	bmp.x		zero
 		cp	bmp.y		zero
-move.enough	cpfa	move.coins	players.coins	players.id
-		blt	move.notenough	move.coins	twenty
+//move.enough	//cpfa	move.coins	players.coins	players.id
+		//blt	move.notenough	move.coins	twenty
 
 
-		cp	bmp.id		img.chenstar
-		call	bmp		bmp.r
+		//cp	bmp.id		img.chenstar
+		//call	bmp		bmp.r
 move.starwait	call	key		key.r
 		be	move.enough	key.val		key.y
 		be	move.starend	key.val		key.n
 		be	move.starwait	0		0
 
-move.enough	cpfa	move.coins	players.coins	players.id
+move.enough	//cpfa	move.coins	players.coins	players.id
 		blt	move.starend	move.coins	twenty
 
 move.staryes	cpfa	move.stars	players.stars	players.id
