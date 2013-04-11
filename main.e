@@ -2,6 +2,7 @@ start	call	clear		clear.r
 	call	load		load.r
 
 	call	music.init	music.initr
+	call	rand.init	rand.r
 
 	cp	bmp.scale	four
 	cp	bmp.x		zero
@@ -30,16 +31,24 @@ main	cp	players.id	game.curPlayer
 	call	gui		gui.r
 	call	wait		wait.r
 	add	game.curPlayer 	game.curPlayer	one
-	be	res		game.curPlayer	four
+	be	res		game.curPlayer	game.players
 	be	main		0		0
 
 res	cp	game.curPlayer	zero
+	call	g1		g1.r
+	add	main.i		main.i		one
+	be	end		main.i		game.rounds
+	
 	be	main		0		0
 
 
 	
 
-end	halt
+end	cp	bd.quad		four
+	call	bd		bd.r
+	halt
+
+main.i	.data	0
 
 
 // drivers
@@ -71,3 +80,5 @@ end	halt
 #include music.e
 #include move.e
 #include star.e
+#include game1.e
+#include rand.e

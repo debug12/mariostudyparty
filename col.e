@@ -5,3 +5,4 @@ col.yellow	.data	252
 col.gray	.data	182
 col.orange	.data	240
 col.darkred	.data	128
+col.skyblue	.data	23

@@ -67,6 +67,8 @@ move.staryes	cpfa	move.stars	players.stars	players.id
 		sub	move.coins	move.coins	twenty
 		cpta	move.stars	players.stars	players.id
 		cpta	move.coins	players.coins	players.id
+		add	game.curstar	game.curstar	one
+		cpfa	game.star	star.loc	game.curstar
 
 move.starend	be	move.ret	0		0
 
@@ -120,7 +122,22 @@ move.endwheel	cp	move.wheeli	zero
 move.store	
 		be	move.ret	0		0
 
-move.event	be	move.ret	0		0
+move.event	cp	bd.quad		five
+		call	bd		bd.r
+		cp	bmp.id		img.kamek
+		cp	bmp.x		zero
+		cp	bmp.y		zero
+		call	bmp		bmp.r
+		call	wait		wait.r
+		cp	img.mario	img.pmchen
+		cp	img.luigi	img.eshild
+		cp	img.yoshi	img.leekatt
+		cp	img.toad	img.kominsky
+		cp	img.mario_icon	img.pmchen
+		cp	img.luigi_icon	img.eshild
+		cp	img.yoshi_icon	img.leekatt
+		cp	img.toad_icon	img.kominsky
+		be	move.ret	0		0
 
 move.red2	sub	move.coins	move.coins	game.redcoins
 		cpta	move.coins	players.coins	players.id

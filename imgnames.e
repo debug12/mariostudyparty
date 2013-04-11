@@ -70,4 +70,9 @@ img.pmchen			.data	68
 img.eshild			.data	69
 img.leekatt			.data	70
 img.kominsky			.data	71
-snd.mario			.data	72
+img.kamek			.data	72
+img.g1info			.data	73
+img.coin			.data	74
+img.bomb			.data	75
+img.cup			.data	76
+snd.mario			.data	77

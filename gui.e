@@ -3,30 +3,25 @@ gui	cp	rect.borcol	col.orange
 	cp	rect.borwidth	four
 	cp	rect.w		gui.width
 	cp	rect.h		gui.height
+	cp	gui.i		zero
 
-	cp	gui.id		zero
-	cp	gui.x		gui.x1
-	cp	gui.y		gui.y1
+
+gui.l	cp	gui.id		gui.i
+	mult	gui.temp	gui.id		two
+	cpfa	gui.x		gui.x1		gui.temp
+	add	gui.temp	gui.temp	one
+	cpfa	gui.y		gui.x1		gui.temp
 	call	gui.draw	gui.drawr
 
-	cp	gui.id		one
-	cp	gui.x		gui.x2
-	cp	gui.y		gui.y1
-	call	gui.draw	gui.drawr
-
-	cp	gui.id		two
-	cp	gui.x		gui.x1
-	cp	gui.y		gui.y3
-	call	gui.draw	gui.drawr
-
-	cp	gui.id		three
-	cp	gui.x		gui.x2
-	cp	gui.y		gui.y3
-	call	gui.draw	gui.drawr
+	add	gui.i		gui.i		one
+	bne	gui.l		gui.i		game.players
+	be	gui.end		0		0
 		
-	ret	gui.r
+gui.end	ret	gui.r
 
 gui.r	.data	0
+gui.i	.data	0
+gui.temp	.data	0
 
 
 gui.draw	cp	rect.x		gui.x
@@ -36,9 +31,16 @@ gui.draw	cp	rect.x		gui.x
 		add	bmp.id		img.mario_icon	gui.id
 		add	bmp.x		gui.x		gui.iconx
 		add	bmp.y		gui.y		gui.icony
-		call	bmp		bmp.r
 
-		cpfa	drawnum.num	players.coins	gui.id
+		bne	gui.notscale	img.mario_icon	img.pmchen
+		cp	bmp.scale	two
+		call	bmp		bmp.r
+		cp	bmp.scale	four
+		be	gui.skip	0		0
+
+gui.notscale	call	bmp		bmp.r
+
+gui.skip	cpfa	drawnum.num	players.coins	gui.id
 		add	drawnum.x	gui.x		gui.coinsx
 		add	drawnum.x	drawnum.x	twentyfour
 		add	drawnum.y	gui.y		gui.coinsy
@@ -72,7 +74,11 @@ gui.y		.data	0
 gui.x1		.data	20
 gui.y1		.data	20
 gui.x2		.data	460
+gui.y2		.data	20
+gui.x3		.data	460
 gui.y3		.data	380
+gui.x4		.data	20
+gui.y4		.data	380
 gui.iconx	.data	12
 gui.icony	.data	12
 gui.coinsx	.data	80	

@@ -32,12 +32,17 @@ players.asd	add	bmp.y		players.index	one
 		cpfa	bmp.y		bd.dat		bmp.y
 		mult	bmp.y		bmp.y		four
 		
-		//cp	bmp.scale	two
-		call	bmp		bmp.r
-		//cp	bmp.scale	four
+
+		bne	players.notscale	img.mario	img.pmchen
+		cp	bmp.scale		two
+		call	bmp			bmp.r
+		cp	bmp.scale		four
+		be	players.inci		0		0
+
+players.notscale	call	bmp		bmp.r
 
 players.inci	add	players.i	players.i	one
-		bne	players.draw1	players.i	four
+		bne	players.draw1	players.i	game.players
 
 players.end	ret	players.r
 
