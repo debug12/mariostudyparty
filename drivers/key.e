@@ -36,5 +36,7 @@ key.a		.data	97
 key.w		.data	119
 key.s		.data	115
 key.d		.data	100
+key.y		.data	121
+key.n		.data	110
 key.space	.data	32
 key.enter	.data	13
