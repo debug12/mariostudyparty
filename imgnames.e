@@ -66,4 +66,8 @@ img.wheel4			.data	64
 img.star			.data	65
 img.chenstar			.data	66
 img.chenstar2			.data	67
-snd.mario			.data	68
+img.pmchen			.data	68
+img.eshild			.data	69
+img.leekatt			.data	70
+img.kominsky			.data	71
+snd.mario			.data	72

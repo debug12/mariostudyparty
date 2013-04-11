@@ -32,7 +32,9 @@ players.asd	add	bmp.y		players.index	one
 		cpfa	bmp.y		bd.dat		bmp.y
 		mult	bmp.y		bmp.y		four
 		
+		//cp	bmp.scale	two
 		call	bmp		bmp.r
+		//cp	bmp.scale	four
 
 players.inci	add	players.i	players.i	one
 		bne	players.draw1	players.i	four
