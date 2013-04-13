@@ -1,0 +1,58 @@
+sdr.write 	call	sdr.waiting0		sdr.waiting0.r
+		call	sdr.apply			sdr.apply.r
+
+
+sdr.in		out		32		one
+				out		35		sdr.data.write
+				out		30		one
+
+				call	sdr.waiting1		sdr.waiting1.r
+				out		30		zero
+
+				ret		sdr.r
+
+
+//WAITINGLOOPS//
+sdr.waiting1		in		31				sdr.response
+					be		sdr.writeWait	sdr.response	zero
+					ret		sdr.waiting1.r
+
+sdr.waiting0	 	in		31				sdr.response
+					be		sdr.writeWait2	sdr.response	one
+					ret		sdr.waiting0.addr
+
+					ret		sdr.r
+
+//READ//
+sdr.read      call	sdr.waiting0	sdr.waiting0.r
+		call	sdr.apply     sdr.apply.r
+
+
+sdr.out		out		32		zero
+				out		30		one
+
+sdr.get		in		36		sdr.data.read
+				out		30		zero
+
+				ret		sdr.r
+
+//APPLY//
+sdr.apply 	out		33		sdr.x
+				out		34		sdr.y
+				ret		sdr.apply.r
+
+
+
+
+sdr.x				.data	0
+sdr.y				.data	0
+sdr.response		.data	0
+sdr.in			.data	0
+sdr.out			.data	0
+sdr.r				.data	0
+sdr.write 		.data	0
+sdr.data.write 	.data	0
+sdr.data.read  	.data	0
+sdr.waiting1.r 	.data	0
+sdr.waiting0.r 	.data   0
+sdr.apply.addr	.data	0

@@ -75,4 +75,5 @@ img.g1info			.data	73
 img.coin			.data	74
 img.bomb			.data	75
 img.cup			.data	76
-snd.mario			.data	77
+img.collected			.data	77
+snd.mario			.data	78

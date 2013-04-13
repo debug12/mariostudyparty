@@ -1,6 +1,7 @@
 wait	call	key		key.r
 		//call	music.play	music.r
 		be	wait		key.press	zero
+		bne	wait		key.val		key.space
 	
 	ret	wait.r
 
