@@ -70,6 +70,7 @@ g1.colty	.data	236
 
 // i have no idea why i thought stars were involved with this.
 // its actually coins.
+//lololol
 
 g1.upstar	cp	g1.stari	zero
 		cp	g1.starj	zero
