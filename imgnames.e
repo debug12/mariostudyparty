@@ -78,4 +78,16 @@ img.cup			.data	76
 img.collected			.data	77
 img.results			.data	78
 img.wontotal			.data	79
-snd.mario			.data	80
+snd.mario_dis			.data	80
+snd.luigi_dis			.data	81
+snd.yoshi_dis			.data	82
+snd.toad_dis			.data	83
+snd.mario_star			.data	84
+snd.luigi_star			.data	85
+snd.yoshi_star			.data	86
+snd.toad_star			.data	87
+snd.bowser			.data	88
+snd.bowserlaugh			.data	89
+snd.thankyou			.data	90
+snd.minigame			.data	91
+snd.coin			.data	92

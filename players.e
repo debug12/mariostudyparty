@@ -66,3 +66,7 @@ players.loc	.data	0
 		.data	0
 		.data	0
 		.data	0
+players.result	.data	0
+		.data	0
+		.data	0
+		.data	0

@@ -9,6 +9,8 @@ g1		call	g1.clearcup	g1.clearcupr
 		call	wait		wait.r
 		cp	waittime.value	g1.delay
 
+		cp	g1.player	zero
+
 		//call	g1.clearcup	g1.clearcupr
 		//call	g1.clearstar	g1.clearstarr
 		//call	g1.drawcup	g1.drawcupr
@@ -53,6 +55,8 @@ g1.done		call	g1.clearstar	g1.clearstarr
 		cp	drawnum.scale	four
 
 		call	wait		wait.r
+	
+		cpta	g1.score	players.result	g1.player
 
 		add	g1.player	g1.player	one
 		be	g1.end		g1.player	game.players

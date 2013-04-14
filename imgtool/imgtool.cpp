@@ -74,16 +74,18 @@ int main(int argc, char *argv[]) {
 				return -1;
 			}
 			
-			short val = 1025;
+			short val = -1;
 			out.write((char*)&val, 2);
-			val = (sound.getSampleCount() / 2) % 10000;
+			val = (sound.getSampleCount()) % 10000;
 			out.write((char*)&val, 2);
-			val = (sound.getSampleCount() / 2) / 10000;
+			val = (sound.getSampleCount()) / 10000;
 			out.write((char*)&val, 2);
 
 			const short *buffer = sound.getSamples();
-			for (int j = 0; j < sound.getSampleCount(); j += 2) {
+			for (int j = 0; j < sound.getSampleCount(); j++) {
 				val = buffer[j];
+				if (val == -1) val = -2;
+				if (val == 1024) val = 1023;
 				out.write((char*)&val, 2);
 			}
 			

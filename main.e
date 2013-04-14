@@ -1,7 +1,6 @@
 start	call	clear		clear.r	
 	call	load		load.r
 
-	call	music.init	music.initr
 	call	rand.init	rand.r
 
 	cp	bmp.scale	four
@@ -10,7 +9,11 @@ start	call	clear		clear.r
 	cp	bmp.id		img.bg
 	call	bmp		bmp.r
 
-mus	//call	music.play	music.r
+	cp	music.id	snd.yoshi_star
+mus	call	music.play	music.r
+
+	cp	music.id	snd.bowser
+	call	music.play	music.r
 	//be	musp		music.finish	one
 	//be	mus		0		0
 	

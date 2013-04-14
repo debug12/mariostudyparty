@@ -1,4 +1,4 @@
-music.init	cp	music.id	snd.mario
+music.play	//cp	music.id	snd.mario
 		mult	music.id	music.id	four
 		cpfa	music.s1	imgaddr		music.id
 		add	music.id	music.id	one
@@ -10,9 +10,7 @@ music.init	cp	music.id	snd.mario
 		cp	music.ihi	zero
 		cp	music.ilo	zero
 
-		ret 	music.initr
-
-music.play	cp	music.iter	zero
+		cp	music.iter	zero
 		cp	sdr.write	zero
 music.play2	cp	sdr.x		music.loc1
 		cp	sdr.y		music.loc2
@@ -49,11 +47,12 @@ music.inchi	add	music.loc2	music.loc2	one
 		cp	music.loc1	zero
 		be	music.ret	0		0
 
-music.end	call	music.init	music.initr
+music.end
 		cp	music.finish	one
+		be	music.aret	0		0
 
-music.ret	add	music.iter	music.iter	one
-		be	music.aret	music.iter	music.samp
+music.ret	//add	music.iter	music.iter	one
+		//be	music.aret	music.iter	music.samp
 		be	music.play2	0		0	
 music.aret	ret	music.r
 	

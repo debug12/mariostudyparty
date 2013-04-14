@@ -19,6 +19,8 @@ mini		cp	vga.x1		zero
 		cp	bmp.id		img.results
 		call	bmp		bmp.r
 
+		cp	mini.i		zero
+
 
 mini.begin	mult	mini.cy		mini.dy		mini.i
 		add	mini.cy		mini.y		mini.cy
@@ -35,7 +37,14 @@ mini.begin	mult	mini.cy		mini.dy		mini.i
 		cp	drawnum.x	mini.wx
 		cp	drawnum.y	mini.cy
 		cp	drawnum.scale	eight
+		cpfa	drawnum.num	players.result	mini.i
 		call	drawnum		drawnum.r
+
+		cpfa	mini.temp	players.coins	mini.i
+		cpfa	mini.temp2	players.result	mini.i
+		add	mini.temp	mini.temp2	mini.temp
+		cpta	mini.temp	players.coins	mini.i
+		cp	drawnum.num	mini.temp
 
 		cp	drawnum.x	mini.tox
 		call	drawnum		drawnum.r
@@ -48,6 +57,8 @@ mini.begin	mult	mini.cy		mini.dy		mini.i
 mini.end	call	wait		wait.r
 		ret	mini.r
 
+mini.temp	.data	0
+mini.temp2	.data	0
 mini.bx	.data	20
 mini.by	.data	20
 mini.wx	.data	252
