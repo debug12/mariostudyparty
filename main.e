@@ -36,6 +36,7 @@ main	cp	players.id	game.curPlayer
 
 res	cp	game.curPlayer	zero
 	call	g1		g1.r
+	call	mini		mini.r
 	add	main.i		main.i		one
 	be	end		main.i		game.rounds
 	
@@ -82,3 +83,4 @@ main.i	.data	0
 #include star.e
 #include game1.e
 #include rand.e
+#include minigameinfo.e

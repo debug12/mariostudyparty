@@ -76,4 +76,6 @@ img.coin			.data	74
 img.bomb			.data	75
 img.cup			.data	76
 img.collected			.data	77
-snd.mario			.data	78
+img.results			.data	78
+img.wontotal			.data	79
+snd.mario			.data	80
