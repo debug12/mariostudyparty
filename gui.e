@@ -28,15 +28,9 @@ gui.draw	cp	rect.x		gui.x
 		cp	rect.y		gui.y
 		call	rect		rect.r
 
-		add	bmp.id		img.mario_icon	gui.id
+		cpfa	bmp.id		img.mario_icon	gui.id
 		add	bmp.x		gui.x		gui.iconx
 		add	bmp.y		gui.y		gui.icony
-
-		bne	gui.notscale	img.mario_icon	img.pmchen
-		cp	bmp.scale	two
-		call	bmp		bmp.r
-		cp	bmp.scale	four
-		be	gui.skip	0		0
 
 gui.notscale	call	bmp		bmp.r
 

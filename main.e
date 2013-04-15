@@ -9,15 +9,8 @@ start	call	clear		clear.r
 	cp	bmp.id		img.bg
 	call	bmp		bmp.r
 
-	cp	music.id	snd.yoshi_star
-mus	call	music.play	music.r
-
-	cp	music.id	snd.bowser
-	call	music.play	music.r
-	//be	musp		music.finish	one
-	//be	mus		0		0
 	
-musp	call	wait		wait.r
+	call	wait		wait.r
 
 	call	menu		menu.r
 

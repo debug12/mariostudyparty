@@ -1,4 +1,4 @@
-music.play	//cp	music.id	snd.mario
+music		//cp	music.id	snd.mario
 		mult	music.id	music.id	four
 		cpfa	music.s1	imgaddr		music.id
 		add	music.id	music.id	one

@@ -11,6 +11,24 @@
 		// beginning of the image
 bmp		cp	bmp.curx1	zero
 		cp	bmp.cury1	zero
+
+
+		bne	bmp.scaleskip1	bmp.id		img.horse
+	
+		cp	bmp.scale	one
+
+bmp.scaleskip1
+
+		be	bmp.scaleskip2	bmp.id		img.pmchen
+		be	bmp.scaleskip2	bmp.id		img.eshild
+		be	bmp.scaleskip2	bmp.id		img.leekatt
+		be	bmp.scaleskip2	bmp.id		img.kominsky
+		be	bmp.scaleskip3	0		0
+
+bmp.scaleskip2	cp	bmp.scale	two
+
+
+bmp.scaleskip3
 		
 		// read the position of the image in memory and its size
 		mult	bmp.id		bmp.id		four
@@ -71,7 +89,8 @@ bmp.incy	cp	bmp.curx1	zero
 		be	bmp.end		bmp.height	bmp.cury1
 		be	bmp.pix		0		0
 
-bmp.end		ret	bmp.r	
+bmp.end		cp	bmp.scale	four		
+		ret	bmp.r	
 
 // the id of the image we are drawing
 bmp.id		.data	0

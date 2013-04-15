@@ -78,6 +78,7 @@ cup.bmp
 collected.bmp
 results.bmp
 wontotal.bmp
+horse.bmp
 mario_dis.wav
 luigi_dis.wav
 yoshi_dis.wav
@@ -91,5 +92,6 @@ bowserlaugh.wav
 thankyou.wav
 minigame.wav
 coin.wav
+farm.wav
 
 

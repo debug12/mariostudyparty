@@ -40,6 +40,7 @@ move.end	cpfa	move.coins	players.coins	players.id
 		add	move.spot	move.spot	three
 		cpfa	move.spot	bd.dat		move.spot
 
+		be	move.event	0		0
 		be	move.star	move.cur	game.star
 		be	move.blue	move.spot	bd.blue
 		be	move.red	move.spot	bd.red
@@ -69,27 +70,39 @@ move.staryes	cpfa	move.stars	players.stars	players.id
 		cpta	move.coins	players.coins	players.id
 		add	game.curstar	game.curstar	one
 		cpfa	game.star	star.loc	game.curstar
+		cpfa	music.id	snd.mario_star	players.id
+		call	music		music.r
 
 move.starend	be	move.ret	0		0
 
 move.notenough	cp	bmp.id		img.chenstar2
 		call	bmp		bmp.r
+		cpfa	music.id	snd.mario_dis	players.id
+		call	music		music.r
 		call	wait		wait.r
 		be	move.starend	0		0
 
 move.blue	add	move.coins	move.coins	game.bluecoins
 		cpta	move.coins	players.coins	players.id
+		cp	music.id	snd.coin
+		call	music		music.r
 		be	move.ret	0		0
 
-move.red	blt	move.red2	two		move.coins
+move.red	cpfa	music.id	snd.mario_dis	players.id
+		call	music		music.r
+		blt	move.red2	two		move.coins
 		be	move.ret	0		0
 
-move.bowser	cp	bd.quad		five
+move.bowser	cp	music.id	snd.bowser
+		call	music		music.r
+		cp	bd.quad		five
 		call	bd		bd.r	
 		cp	bmp.x		zero
 		cp	bmp.y		zero
 		cp	bmp.id		img.bowser1
 		call	bmp		bmp.r
+		cp	music.id	snd.bowserlaugh
+		call	music		music.r
 		call	wait		wait.r
 		cp	bmp.id		img.bowser2
 		call	bmp		bmp.r
@@ -128,16 +141,25 @@ move.event	cp	bd.quad		five
 		cp	bmp.x		zero
 		cp	bmp.y		zero
 		call	bmp		bmp.r
+		cp	music.id	snd.farm
+		call	music		music.r
 		call	wait		wait.r
-		cp	img.mario	img.pmchen
-		cp	img.luigi	img.eshild
-		cp	img.yoshi	img.leekatt
-		cp	img.toad	img.kominsky
-		cp	img.mario_icon	img.pmchen
-		cp	img.luigi_icon	img.eshild
-		cp	img.yoshi_icon	img.leekatt
-		cp	img.toad_icon	img.kominsky
+		//cp	img.mario	img.pmchen
+		//cp	img.luigi	img.eshild
+		//cp	img.yoshi	img.leekatt
+		//cp	img.toad	img.kominsky
+		//cp	img.mario_icon	img.pmchen
+		//cp	img.luigi_icon	img.eshild
+		//cp	img.yoshi_icon	img.leekatt
+		//cp	img.toad_icon	img.kominsky
+	
+		cpta	img.horse	img.mario	players.id
+		cpta	img.horse	img.mario_icon	players.id
+
+
 		be	move.ret	0		0
+
+move.temphorse	.data	0
 
 move.red2	sub	move.coins	move.coins	game.redcoins
 		cpta	move.coins	players.coins	players.id

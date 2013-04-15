@@ -27,9 +27,14 @@ drawnum		mult	drawnum.dx	four		drawnum.scale
 		cp	bmp.y		drawnum.y
 		call	bmp		bmp.r
 
+
+		cp	bmp.scale	drawnum.scale
+
 		add	bmp.x		bmp.x		drawnum.dx
 		cpfa	bmp.id		img.n0		drawnum.d1
 		call	bmp		bmp.r
+
+		cp	bmp.scale	drawnum.scale
 
 		add	bmp.x		bmp.x		drawnum.dx
 		cpfa	bmp.id		img.n0		drawnum.d2
