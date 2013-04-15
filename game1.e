@@ -9,6 +9,29 @@ g1		call	g1.clearcup	g1.clearcupr
 		call	wait		wait.r
 		cp	waittime.value	g1.delay
 
+		call	rand		rand.r
+		add	rand.out	rand.out	eight
+		mult	rand.out	rand.out	three
+		cp	g1.target	rand.out
+
+		call	g1.clearcup	g1.clearcupr
+		call	g1.clearstar	g1.clearstarr
+
+		cp	bmp.x		g1.targetx
+		cp	bmp.y		g1.targety
+		cp	bmp.id		img.target
+		call	bmp		bmp.r	
+
+		cp	drawnum.num	g1.target
+		cp	drawnum.x	g1.targetx2
+		cp	drawnum.y	g1.targety2
+		cp	drawnum.scale	sixteen
+		call	drawnum		drawnum.r
+		cp	drawnum.scale	four
+
+		call	wait		wait.r
+		
+
 		cp	g1.player	zero
 
 		//call	g1.clearcup	g1.clearcupr
@@ -30,7 +53,7 @@ g1.begin	call	g1.clearcup	g1.clearcupr
 
 g1.main		call	waittime	waittime.r
 		call	key		key.r
-		be	g1.key1	key.press	one
+		be	g1.key1		key.press	one
 g1.draw		add	g1.stari	g1.stari	one
 		be	g1.upstar	g1.stari	g1.starmax
 
@@ -56,7 +79,11 @@ g1.done		call	g1.clearstar	g1.clearstarr
 
 		call	wait		wait.r
 	
-		cpta	g1.score	players.result	g1.player
+
+		bne	g1.copyskip	g1.score	g1.target
+		cpta	ten	players.result	g1.player
+
+g1.copyskip
 
 		add	g1.player	g1.player	one
 		be	g1.end		g1.player	game.players
@@ -70,6 +97,11 @@ g1.collx	.data	200
 g1.colly	.data	200
 g1.coltx	.data	280
 g1.colty	.data	236
+g1.targetx	.data	200
+g1.targety	.data	140
+g1.targetx2	.data	220
+g1.targety2	.data	180
+g1.target	.data	0
 ///////////////////////////////////////////////////////////////////
 
 // i have no idea why i thought stars were involved with this.
@@ -95,8 +127,14 @@ g1.starbegin	be	g1.donestar	g1.starj	g1.num
 		be	g1.drawskip	bmp.y		vga.h
 		add	g1.starindex	g1.starindex	one
 		cpfa	g1.startype	g1.grid		g1.starindex
-		cpfa	bmp.id		img.coin	g1.startype
+		cpfa	bmp.id		img.n1		g1.startype
+		add	bmp.x		bmp.x		four
+		add	bmp.y		bmp.y		four
+		cp	bmp.scale	twelve
 		call	bmp		bmp.r
+		cp	bmp.scale	four
+		sub	bmp.x		bmp.x		four
+		sub	bmp.y		bmp.y		four
 
 g1.drawskip
 
@@ -108,15 +146,9 @@ g1.drawskip
 		cpta	zero		g1.grid		g1.starindex
 		add	g1.numdone	g1.numdone	one
 		bne	g1.countskip	g1.cupx		g1.starx
-		be	g1.iscoin	g1.startype	zero
-		be	g1.isbomb	g1.startype	one
 
-
-g1.iscoin	add	g1.score	g1.score	one
-		be	g1.countskip	0		0
-
-g1.isbomb	cp	g1.score	zero
-		be	g1.countskip	0		0
+		add	g1.score	g1.score	g1.startype
+		add	g1.score	g1.score	one
 
 g1.countskip	be	g1.done		g1.numdone	g1.max
 		be	g1.incj		0		0
@@ -143,11 +175,8 @@ g1.donestar	// create new coin
 		cpta	zero		g1.grid		g1.starindex
 		add	g1.starindex	g1.starindex	one
 		call	rand		rand.r
-		blt	g1.makecoin	rand.out	six
-		cpta	one		g1.grid		g1.starindex
-		be	g1.incnum	0		0
+		cpta	rand.out	g1.grid		g1.starindex
 
-g1.makecoin	cpta	zero		g1.grid		g1.starindex
 g1.incnum	add	g1.num		g1.num		one
 		
 
