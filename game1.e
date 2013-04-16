@@ -80,7 +80,7 @@ g1.done		call	g1.clearstar	g1.clearstarr
 		call	wait		wait.r
 	
 
-		bne	g1.copyskip	g1.score	g1.target
+		bne		g1.copyskip	g1.score	g1.target
 		cpta	ten	players.result	g1.player
 
 g1.copyskip
