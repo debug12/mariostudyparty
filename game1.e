@@ -47,6 +47,7 @@ g1.begin	call	g1.clearcup	g1.clearcupr
 		cp	g1.cupx		zero
 		cp	g1.num		one
 		cp	g1.numdone	zero
+		cpta	zero		players.result	g1.player
 		
 		call	players.intro	players.r
 		call	wait		wait.r

@@ -1,9 +1,21 @@
 wait	call	key		key.r
 		//call	music.play	music.r
 		be	wait		key.press	zero
+		be	wait.change	key.val		key.p
 		bne	wait		key.val		key.space
 	
-	ret	wait.r
+wait.ret	ret	wait.r
+
+wait.change	cp	img.mario	img.pmchen
+		cp	img.luigi	img.eshild
+		cp	img.yoshi	img.leekatt
+		cp	img.toad	img.kominsky
+		cp	img.mario_icon	img.pmchen
+		cp	img.luigi_icon	img.eshild
+		cp	img.yoshi_icon	img.leekatt
+		cp	img.toad_icon	img.kominsky
+
+		be	wait.ret	0		0
 
 
 

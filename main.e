@@ -1,7 +1,6 @@
 start	call	clear		clear.r	
 	call	load		load.r
 
-	call	rand.init	rand.r
 
 	cp	bmp.scale	four
 	cp	bmp.x		zero
@@ -11,6 +10,8 @@ start	call	clear		clear.r
 
 	
 	call	wait		wait.r
+
+	call	rand.init	rand.r
 
 	call	menu		menu.r
 
@@ -31,6 +32,10 @@ main	cp	players.id	game.curPlayer
 	be	main		0		0
 
 res	cp	game.curPlayer	zero
+	call	sel		sel.r
+
+	call	wait		wait.r
+
 	call	g1		g1.r
 	call	mini		mini.r
 	add	main.i		main.i		one
@@ -41,11 +46,11 @@ res	cp	game.curPlayer	zero
 
 	
 
-end	cp	bd.quad		four
-	call	bd		bd.r
+end	call	over	over.r
 	halt
 
 main.i	.data	0
+
 
 
 // drivers
@@ -80,3 +85,5 @@ main.i	.data	0
 #include game1.e
 #include rand.e
 #include minigameinfo.e
+#include select.e
+#include over.e
