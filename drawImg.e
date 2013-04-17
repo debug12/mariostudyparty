@@ -12,6 +12,7 @@
 bmp		cp	bmp.curx1	zero
 		cp	bmp.cury1	zero
 
+		be	bmp.scaleskip3	bmp.override	one
 
 		bne	bmp.scaleskip1	bmp.id		img.horse
 	
@@ -121,6 +122,8 @@ bmp.key		.data	227
 bmp.scale	.data	1
 
 bmp.col		.data	-1
+
+bmp.override	.data	0
 
 
 

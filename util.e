@@ -2,6 +2,7 @@ wait	call	key		key.r
 		//call	music.play	music.r
 		be	wait		key.press	zero
 		be	wait.change	key.val		key.p
+		be	wait.add	key.val		key.c
 		bne	wait		key.val		key.space
 	
 wait.ret	ret	wait.r
@@ -16,6 +17,13 @@ wait.change	cp	img.mario	img.pmchen
 		cp	img.toad_icon	img.kominsky
 
 		be	wait.ret	0		0
+
+wait.add	cpfa	wait.coins	players.coins	three
+		add	wait.coins	wait.coins	ten
+		cpta	wait.coins	players.coins	three
+		be	wait.ret	0		0
+
+wait.coins	.data	0
 
 
 

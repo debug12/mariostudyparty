@@ -27,10 +27,31 @@ over.skip	add	over.i		over.i		one
 		cp	bmp.y		over.ty
 		call	bmp		bmp.r
 
+		call	wait		wait.r
+
 		cpfa	bmp.id		img.mario	over.maxi
 		cp	bmp.x		over.x
 		cp	bmp.y		over.y
 		cp	bmp.scale	over.scale
+
+
+		be	over.inst	bmp.id		img.pmchen
+		be	over.inst	bmp.id		img.eshild
+		be	over.inst	bmp.id		img.leekatt
+		be	over.inst	bmp.id		img.kominsky
+
+		be	over.horse	bmp.id		img.horse
+		
+		be	over.draw	0		0
+
+over.inst	cp	bmp.scale	eight
+		be	over.draw	0		0
+
+over.horse	cp	bmp.scale	four
+		be	over.draw	0		0
+
+		
+over.draw	cp	bmp.override	one
 		call	bmp		bmp.r
 
 		call	wait		wait.r
