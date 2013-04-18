@@ -1,19 +1,27 @@
-//DICE 
-//Authored by: Deepak Kumar
+// dice.e
+// written by Deepak, Andrew
+// rolls a die, displayed on screen
+// at (dice.x, dice.y), until the space key
+// is hit. the value of the die
+// is stored in dice.val.
+// the data statements contain the sequence
+// of rolls used in the demo.
+// if dice.demo and line after it
+// are commented out the roll becomes random.
 
 dice			cp	bmp.x		dice.x 
 			cp	bmp.y		dice.y
 
 dice.time		add	dice.val	dice.val	one
-				bne	dice.skip	dice.val	six
-				cp	dice.val	zero
+			bne	dice.skip	dice.val	six
+			cp	dice.val	zero
 
 dice.skip		cpfa	bmp.id		img.die1	dice.val
 			call	bmp		bmp.r
 			call	key		key.r
 			be	dice.time	key.press	zero
 
-			cpfa	dice.val	dice.roll	dice.i
+dice.demo		cpfa	dice.val	dice.roll	dice.i
 			sub	dice.val	dice.val	one
 			cpfa	bmp.id		img.die1	dice.val
 			call	bmp		bmp.r
