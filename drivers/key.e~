@@ -38,6 +38,6 @@ key.s		.data	115
 key.d		.data	100
 key.y		.data	121
 key.n		.data	110
-key.g		.data	112
+key.p		.data	112
 key.space	.data	32
 key.enter	.data	13

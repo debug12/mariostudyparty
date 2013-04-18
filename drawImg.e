@@ -1,8 +1,10 @@
+// drawImg.e
+// written by Andrew, Deepak, Michael, Prateek
 // draws a bitmap image
 // to the position (bmp.x, bmp.y)
 // with scale bmp.scale
 // specify the image with bmp.id.
-// ADDED OPTION
+// ADDED OPTION:
 // if you set col to something other than -1, all
 // pixels of image are drawn in that color.
 
@@ -12,10 +14,19 @@
 bmp		cp	bmp.curx1	zero
 		cp	bmp.cury1	zero
 
+		be	bmp.scaleskip3	bmp.override	one
 
 		bne	bmp.scaleskip1	bmp.id		img.horse
 	
 		cp	bmp.scale	one
+
+// the following skips, though not very elegant, are a way for us to
+// take into account the fact that certain images are meant to 
+// be drawn at different resolutions. for instance, the instructors
+// are twice the resolution of the mario characters; however
+// we want them to be the same size as the regular characters
+// if the scale is specified to be four. to override this
+// set bmp.override to one.
 
 bmp.scaleskip1
 
@@ -121,6 +132,8 @@ bmp.key		.data	227
 bmp.scale	.data	1
 
 bmp.col		.data	-1
+
+bmp.override	.data	0
 
 
 

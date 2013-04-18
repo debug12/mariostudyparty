@@ -21,7 +21,7 @@ start	call	clear		clear.r
 	call	info		info.r
 
 	//cp	bd.quad		three
-	//call	bd		bd.r	
+	//call	bd		bd.r
 
 main	cp	players.id	game.curPlayer
 	call	move		move.r
@@ -31,17 +31,23 @@ main	cp	players.id	game.curPlayer
 	be	res		game.curPlayer	game.players
 	be	main		0		0
 
-res	cp	game.curPlayer	zero
-	call	sel		sel.r
+res		cp	game.curPlayer	zero
 
-	call	wait		wait.r
+		be	main.skipgame	main.demo	one
+		call	sel		sel.r
 
-	call	g1		g1.r
-	call	mini		mini.r
-	add	main.i		main.i		one
-	be	end		main.i		game.rounds
+		call	wait		wait.r
+
+
+		cp	main.demo	one
+
+		call	g1		g1.r
+		call	mini		mini.r
+
+main.skipgame	add	main.i		main.i		one
+			be	end		main.i		game.rounds
 	
-	be	main		0		0
+		be	main		0		0
 
 
 	
@@ -50,6 +56,7 @@ end	call	over	over.r
 	halt
 
 main.i	.data	0
+main.demo	.data	0
 
 
 

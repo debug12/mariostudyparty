@@ -1,3 +1,8 @@
+// game1.e
+// written by Andrew, Deepak
+// contains the NUMBERPALOOZA
+// minigame. 
+
 g1		call	g1.clearcup	g1.clearcupr
 		call	g1.clearstar	g1.clearstarr
 	

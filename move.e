@@ -40,6 +40,7 @@ move.end	cpfa	move.coins	players.coins	players.id
 		add	move.spot	move.spot	three
 		cpfa	move.spot	bd.dat		move.spot
 
+		//be	move.event	0		0
 		be	move.star	move.cur	game.star
 		be	move.blue	move.spot	bd.blue
 		be	move.red	move.spot	bd.red

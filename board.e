@@ -1,4 +1,14 @@
-// BOARD
+// board.e
+// written by Andrew, Deepak
+// draws the quadrant of the board specified
+// by bd.quad
+// the .data statements below specify the 
+// locations and types of spaces in the format:
+//	- x
+//	- y
+//	- quadrant
+//	- type
+//	- unused
 
 bd	cpfa	bmp.id	img.bg1		bd.quad
 	cp	bmp.x	zero
