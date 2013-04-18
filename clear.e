@@ -1,4 +1,5 @@
 // clear.e
+// written by Andrew
 // clears the screen to the color specified
 // by clear.col
 
