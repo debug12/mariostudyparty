@@ -1,3 +1,10 @@
+// drawnum.e
+// written by Andrew, Deepak
+// draws the number specified
+// by drawnum.num to the position
+// (drawnum.x, drawnum.y). the number can be
+// at most three digits.
+
 drawnum		mult	drawnum.dx	four		drawnum.scale
 		mult	drawnum.dy	five		drawnum.scale
 		cp	vga.col		col.white
