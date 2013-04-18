@@ -1,3 +1,7 @@
+// clear.e
+// clears the screen to the color specified
+// by clear.col
+
 clear	cp	vga.x1	zero
 	cp	vga.y1	zero
 	cp	vga.x2	vga.w
