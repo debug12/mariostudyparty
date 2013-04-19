@@ -1,6 +1,8 @@
 // load.e - loads image and sound data from sd card
 // to sdram
 //
+// written by Andrew, Deepak
+//
 // the file on the sd card must be formatted in a particular way.
 // the beginning of an image is indicated with the value 1024.
 // the next two values are the width and height of the image, followed

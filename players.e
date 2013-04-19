@@ -1,3 +1,9 @@
+// players.e
+// draws current player
+// as well as any other players
+// in same quadrant to screen
+// written by Andrew
+
 players.intro	cpfa	bmp.id		img.player1	players.id
 		cp	bmp.x		players.introx
 		cp	bmp.y		players.introy

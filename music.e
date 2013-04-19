@@ -1,3 +1,7 @@
+// music.e
+// plays sound files
+// written by Michael
+
 music		//cp	music.id	snd.mario
 		mult	music.id	music.id	four
 		cpfa	music.s1	imgaddr		music.id

@@ -1,3 +1,9 @@
+// move.e
+// moves the current player
+// also applies any effects, depending
+// on the space landed on
+// written by Andrew, Michael
+
 move	call	players.draw	players.r
 
 	call	players.intro	players.r

@@ -1,3 +1,7 @@
+// sound driver
+// inputs: sp.samp
+// written by Andrew
+
 sp	out	42	sp.samp
 	out	40	sp.on
 sp.re	in	41	sp.res

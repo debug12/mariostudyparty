@@ -1,3 +1,8 @@
+// minigameinfo.e
+// displays the results of a minigame after
+// it's been completed
+// written by Andrew
+
 mini		cp	vga.x1		zero
 		cp	vga.x2		vga.w
 		cp	vga.y1		zero

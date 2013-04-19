@@ -1,3 +1,8 @@
+// select.e
+// randomly selects a minigame
+// to be played
+// written by Andrew, Deepak
+
 sel	cp	rect.x		twenty
 	cp	rect.y		twenty
 	sub	rect.w		vga.w	forty

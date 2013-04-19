@@ -1,4 +1,5 @@
-//Timer "driver"
+// timer driver
+// written by Deepak
 time		in		5		time.out
 			ret		time.r
 

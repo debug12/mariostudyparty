@@ -1,3 +1,6 @@
+// draws the star
+// written by Michael
+
 star	mult	star.index	game.star	five
 	cpfa	star.x		bd.dat		star.index
 	add	star.index	star.index	one

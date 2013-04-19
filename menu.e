@@ -1,3 +1,7 @@
+// menu.e
+// displays menu
+// written by Michael, Prateek
+
 menu	cp	bmp.id		img.menu
 	cp	bmp.x		zero
 	cp	bmp.y		zero

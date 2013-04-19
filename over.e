@@ -1,3 +1,8 @@
+// over.e
+// displays the winner
+// once the game has finished.
+// written by Andrew
+
 over		cp	bd.quad		five
 		call	bd		bd.r
 

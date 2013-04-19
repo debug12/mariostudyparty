@@ -1,3 +1,8 @@
+// rect.e
+// draws a rectangle to the screen
+// with an optional border
+// written by Prateek
+
 rect	cp	vga.x1	rect.x
 	cp	vga.y1	rect.y
 	cp	vga.x2	rect.x

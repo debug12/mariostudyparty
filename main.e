@@ -1,3 +1,7 @@
+// main.e
+// main assembly file.
+// writte by everybody
+
 start	call	clear		clear.r	
 	call	load		load.r
 

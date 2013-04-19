@@ -1,3 +1,7 @@
+// util.e
+// contains helper procedures
+// written by everybody
+
 wait	call	key		key.r
 		//call	music.play	music.r
 		be	wait		key.press	zero
