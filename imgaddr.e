@@ -1,3 +1,6 @@
+// where image, sound address, sizes are stored
+
+
 imgaddr	.data	0
 	.data	0
 	.data	0
