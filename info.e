@@ -1,3 +1,7 @@
+// info.e
+// written by Michael
+// displays game instructions
+
 info	cp	rect.x	info.x
 	cp	rect.y	info.y
 	cp	rect.w	info.w
