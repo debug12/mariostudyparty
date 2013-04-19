@@ -1,3 +1,8 @@
+// gui.e
+// written by Andrew
+// displays the game's gui
+
+// initializes values of gui parameters
 gui	cp	rect.borcol	col.orange
 	cp	rect.col	col.yellow
 	cp	rect.borwidth	four
@@ -24,6 +29,7 @@ gui.i	.data	0
 gui.temp	.data	0
 
 
+// draws gui for one player
 gui.draw	cp	rect.x		gui.x
 		cp	rect.y		gui.y
 		call	rect		rect.r
@@ -34,6 +40,7 @@ gui.draw	cp	rect.x		gui.x
 
 gui.notscale	call	bmp		bmp.r
 
+//draws box, icon, coins, stars
 gui.skip	cpfa	drawnum.num	players.coins	gui.id
 		add	drawnum.x	gui.x		gui.coinsx
 		add	drawnum.x	drawnum.x	twentyfour
