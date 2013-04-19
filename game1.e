@@ -3,9 +3,12 @@
 // contains the NUMBERPALOOZA
 // minigame. 
 
+// initialization
 g1		call	g1.clearcup	g1.clearcupr
 		call	g1.clearstar	g1.clearstarr
 	
+		
+		// instructions
 		cp	bmp.id		img.g1info
 		cp	bmp.x		zero
 		cp	bmp.y		zero
@@ -14,6 +17,7 @@ g1		call	g1.clearcup	g1.clearcupr
 		call	wait		wait.r
 		cp	waittime.value	g1.delay
 
+		// generate target score
 		call	rand		rand.r
 		add	rand.out	rand.out	eight
 		mult	rand.out	rand.out	three
@@ -27,6 +31,7 @@ g1		call	g1.clearcup	g1.clearcupr
 		cp	bmp.id		img.target
 		call	bmp		bmp.r	
 
+		// display target
 		cp	drawnum.num	g1.target
 		cp	drawnum.x	g1.targetx2
 		cp	drawnum.y	g1.targety2
@@ -43,7 +48,8 @@ g1		call	g1.clearcup	g1.clearcupr
 		//call	g1.clearstar	g1.clearstarr
 		//call	g1.drawcup	g1.drawcupr
 
-g1.begin	call	g1.clearcup	g1.clearcupr
+g1.begin	//beginning of game
+		call	g1.clearcup	g1.clearcupr
 		call	g1.clearstar	g1.clearstarr
 		cp	players.id	g1.player
 		cp	g1.score	zero
@@ -114,6 +120,8 @@ g1.target	.data	0
 // its actually coins.
 //lololol
 
+// updates the numbers falling from the top of the screen
+// generates new number
 g1.upstar	cp	g1.stari	zero
 		cp	g1.starj	zero
 		call	g1.clearstar	g1.clearstarr
@@ -197,6 +205,7 @@ g1.startype	.data	0
 
 ///////////////////////////////////////////////////////////////////
 
+//handles input
 g1.key1		be	g1.keya		key.val		key.a
 		be	g1.keyd		key.val		key.d
 g1.key2		blt	g1.cupleft	g1.cupx		zero
